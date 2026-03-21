@@ -1,4 +1,4 @@
-Here's the updated agent memory file reflecting the results from the latest run:
+Here's the complete updated agent memory file reflecting the latest run:
 
 ---
 
@@ -23,7 +23,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"autonomic flexibility" AND "cognitive performance" AND "healthy young adults"`
 - `"vagal tone" AND "cognitive function" AND "student population"`
 - Queries from this run that did not improve results.
-- **✗ What failed**: 
+- **✗ What failed:** 
   - `"heart rate variability" AND "prefrontal cortex" AND "executive function" AND "young adults"`
   - `"vagal tone" AND "working memory" AND "neuroscience"`
   - `"RMSSD" AND "cognitive performance" AND "university students"`
@@ -65,7 +65,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What has NOT worked:
 - Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
 - Queries from this run did not improve results.
-- **✗ What failed**: Queries this run did not improve results.
+- **✗ What failed:** Queries this run did not improve results.
 
 ### ✓ Directions to try next:
 - `working memory capacity academic achievement meta-analysis`
@@ -111,7 +111,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What has NOT worked:
 - Most D3 queries return 2 or fewer papers after filtering.
 - Queries from this run did not improve results.
-- **✗ What failed**: 
+- **✗ What failed:** 
   - Other queries didn't improve the results this run.
 
 ### ✓ Directions to try next:
