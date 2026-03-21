@@ -1,4 +1,4 @@
-Sure! Here's the complete updated agent memory file reflecting the changes from this run:
+Here's the complete updated agent memory file reflecting the changes from this run:
 
 ---
 
@@ -60,15 +60,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ## Link C — Cognition → Grades (current best score: 0.153)
 
-### ✓ Promising signs:
-- `"working memory" AND "GPA" AND "meta-analysis"` — showed early promise
-- `"executive function" AND "exam scores" AND "systematic review"` — found papers
-
-### ✗ What has NOT worked:
-- Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
-
 ### ✗ What failed:
-- Queries from this run did not improve results.
+- `"working memory" AND "GPA" AND "meta-analysis"` — did not improve results this run
+- `"executive function" AND "exam scores" AND "systematic review"` — did not improve results this run
+- Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
 
 ### ✓ Directions to try next:
 - `working memory capacity academic achievement meta-analysis`
@@ -85,8 +80,8 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"sleep disturbance" AND "PHQ-9" AND "prospective cohort"` → found relevant papers
 - `"RMSSD" AND "depression" AND "systematic review"` → worked well
 
-### ✗ What has NOT worked:
-- Nested-quote queries like `'"HRV AND sleep AND "PHQ-9""'` → HTTP 500 error on OpenAlex
+### ✗ What failed:
+- Queries from this run did not improve results.
 
 ### ✓ What improved:
 - Improvements observed in this run: Score increased from 0.683 to 1.683.
@@ -111,12 +106,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✓ What has worked:
 - `"nocturnal HRV" AND "insomnia" AND "systematic review"` → found relevant papers
 
-### ✗ What has NOT worked:
+### ✗ What failed:
 - Most D3 queries return 2 or fewer papers after filtering.
 - Queries from this run did not improve the results.
-
-### ✗ What failed:
-- Other queries didn't improve the results this run.
 
 ### ✓ Directions to try next:
 - `sleep efficiency heart rate variability insomnia disorder`
