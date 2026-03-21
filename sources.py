@@ -180,8 +180,9 @@ def search_openalex(query: str, max_results: int = 50, min_year: int = 2009) -> 
             continue
 
         # Use cited_by_count as n proxy (better than 0 — prevents filter-out if extraction fails)
-        # LLM extraction will replace this with the actual sample size when available
-        n_proxy = max(cited_by // 5, 1)  # rough heuristic: ~5 citations per participant
+        # LLM extraction will replace this with the actual sample size when available.
+        # Floor of 20: ensures papers without explicit n in abstract pass default min_sample_size=20
+        n_proxy = max(cited_by // 5, 20)
         papers.append(Paper(
             pmid=pmid,
             title=title,
@@ -399,7 +400,7 @@ def run_searches(
     # Papers without abstracts return empty relevance from LLM → score=0, wasted API call.
     # cited_by_count is a free quality proxy (already fetched from OpenAlex).
     # 10 papers = 1 LLM batch per link → eliminates token truncation risk entirely.
-    _PRE_FILTER_N = 10
+    _PRE_FILTER_N = 25
     for link in LINK_WEIGHTS:
         has_abstract = [p for p in papers_by_link[link] if p.abstract and len(p.abstract) > 200]
         no_abstract_count = len(papers_by_link[link]) - len(has_abstract)
