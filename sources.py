@@ -392,15 +392,19 @@ def run_searches(
             _add_papers(link, results)
             time.sleep(0.15)
 
-    # 3. Pre-filter: keep top 10 by citation count per link before LLM extraction.
+    # 3. Pre-filter: drop no-abstract papers, then keep top 10 by citation count.
+    # Papers without abstracts return empty relevance from LLM → score=0, wasted API call.
     # cited_by_count is a free quality proxy (already fetched from OpenAlex).
     # 10 papers = 1 LLM batch per link → eliminates token truncation risk entirely.
     _PRE_FILTER_N = 10
     for link in LINK_WEIGHTS:
-        if len(papers_by_link[link]) > _PRE_FILTER_N:
-            papers_by_link[link] = sorted(
-                papers_by_link[link], key=lambda p: p.cited_by_count, reverse=True
-            )[:_PRE_FILTER_N]
+        has_abstract = [p for p in papers_by_link[link] if p.abstract and len(p.abstract) > 80]
+        no_abstract_count = len(papers_by_link[link]) - len(has_abstract)
+        if no_abstract_count:
+            print(f"[sources]   Dropped {no_abstract_count} no-abstract papers for {link}", flush=True)
+        papers_by_link[link] = sorted(
+            has_abstract, key=lambda p: p.cited_by_count, reverse=True
+        )[:_PRE_FILTER_N]
 
     raw_counts = {link: len(papers_by_link[link]) for link in LINK_WEIGHTS}
     print(f"[sources] Paper counts after pre-filter (top {_PRE_FILTER_N} by citations): {raw_counts}", flush=True)
