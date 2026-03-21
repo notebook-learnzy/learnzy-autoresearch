@@ -1,4 +1,4 @@
-Sure! Here's the updated agent memory file reflecting the latest run, along with your specified changes:
+Sure! Here’s the complete updated agent memory file reflecting the latest run with the specified changes:
 
 ---
 
@@ -10,7 +10,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link A — HRV → Cognition (current best score: 0.528)
+## Link A — HRV → Cognition (current best score: 0.838)
 
 ### ✗ What has NOT worked (do not retry):
 - Generic `"heart rate variability" AND "cognitive performance"` → returns cardiac disease/arrhythmia papers; LLM gives relevance=0 (wrong population)
@@ -23,15 +23,16 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"autonomic flexibility" AND "cognitive performance" AND "healthy young adults"`
 - `"vagal tone" AND "cognitive function" AND "student population"`
 - Queries from the previous run that did not improve results.
-- **✗ What failed:**
-  - `"HF-HRV" AND "executive function" AND "meta-analysis" AND "young adults"`
-  - `"cardiac vagal control" AND "cognitive function" AND "neuroscience"`
-  - `"autonomic flexibility" AND "cognition" AND "systematic review"`
-  - `"heart rate variability" AND "cognitive control" AND "student population"`
-  - `"RMSSD" AND "working memory" AND "meta-analysis" AND "students"`
+
+### ✗ What failed:
+- `"HF-HRV" AND "executive function" AND "meta-analysis" AND "young adults"`
+- `"cardiac vagal control" AND "cognitive function" AND "neuroscience"`
+- `"autonomic flexibility" AND "cognition" AND "systematic review"`
+- `"heart rate variability" AND "cognitive control" AND "student population"`
+- `"RMSSD" AND "working memory" AND "meta-analysis" AND "students"`
 
 ### ✓ What worked:
-- Improvements observed in this run: Score increased from 0.000 to 0.528.
+- Improvements observed in this run: Score increased from 0.528 to 0.838.
 
 ### ✓ Directions to try next:
 - Search for the specific well-known papers: `Forte 2019 heart rate variability cognitive performance meta-analysis`
@@ -42,7 +43,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link B — Sleep → Cognition (current best score: 1.067)
+## Link B — Sleep → Cognition (current best score: 1.130)
 
 ### ✓ What worked:
 - `"sleep deprivation" AND "cognitive performance" AND "systematic review"` → found relevant papers
@@ -57,7 +58,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link C — Cognition → Grades (current best score: 0.365)
+## Link C — Cognition → Grades (current best score: 0.153)
 
 ### ✓ Promising signs:
 - `"working memory" AND "GPA" AND "meta-analysis"` — showed early promise
@@ -65,8 +66,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ### ✗ What has NOT worked:
 - Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
+
+### ✗ What failed:
 - Queries from this run did not improve results.
-- **✗ What failed:** Queries this run did not improve results.
 
 ### ✓ Directions to try next:
 - `working memory capacity academic achievement meta-analysis`
@@ -76,7 +78,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D1 — HRV/Sleep → Depression (current best score: 0.683)
+## Link D1 — HRV/Sleep → Depression (current best score: 1.683)
 
 ### ✓ What has worked:
 - `"HRV" AND "depression risk" AND "meta-analysis"` → found relevant papers
@@ -87,11 +89,11 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - Nested-quote queries like `'"HRV AND sleep AND "PHQ-9""'` → HTTP 500 error on OpenAlex
 
 ### ✓ What improved:
-- Improvements observed in this run: Score increased from 0.784 to 0.683.
+- Improvements observed in this run: Score increased from 0.683 to 1.683.
 
 ---
 
-## Link D2 — HRV/Sleep → Anxiety (current best score: 1.428 — STRONGEST LINK)
+## Link D2 — HRV/Sleep → Anxiety (current best score: 1.916 — STRONGEST LINK)
 
 ### ✓ What worked (PRESERVE THESE):
 - `"HRV" AND "anxiety prediction" AND "meta-analysis"` → consistently finds high-relevance papers
@@ -104,7 +106,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D3 — HRV/Sleep → Insomnia (current best score: 0.000)
+## Link D3 — HRV/Sleep → Insomnia (current best score: 0.759)
 
 ### ✓ What has worked:
 - `"nocturnal HRV" AND "insomnia" AND "systematic review"` → found relevant papers
@@ -112,8 +114,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What has NOT worked:
 - Most D3 queries return 2 or fewer papers after filtering.
 - Queries from this run did not improve results.
-- **✗ What failed:**
-  - Other queries didn't improve the results this run.
+
+### ✗ What failed:
+- Other queries didn't improve the results this run.
 
 ### ✓ Directions to try next:
 - `sleep efficiency heart rate variability insomnia disorder`
@@ -138,7 +141,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | Run      | Score   | Status        | What changed                                          |
 | -------- | ------- | ------------- | ----------------------------------------------------- |
 | baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0                   |
-| this run | 0.014484| no_improvement | A=0.528; B=1.067; C=0.365; D1=0.683; D2=1.428; D3=0.000 |
+| this run | 0.022584| no_improvement | A=0.838; B=1.130; C=0.153; D1=1.683; D2=1.916; D3=0.759 |
 
 ---
 
