@@ -243,7 +243,8 @@ def _claude_extract_paper_stats(papers: List[Paper], link_name: str) -> List[Pap
         f"prospective_cohort, cross_sectional, case_control, case_study]\n"
         f"4. relevance_score: 0.0-1.0 — how directly this paper supports the "
         f"hypothesis link (1.0 = directly tests it, 0.0 = irrelevant)\n\n"
-        f"Return ONLY a JSON array, one object per paper in order:\n"
+        f"Return ONLY a JSON array with EXACTLY {len(papers[:20])} objects, one per paper in order.\n"
+        f"NEVER return an empty array. If a paper is irrelevant, still include it with relevance_score=0.0.\n"
         f'[{{"n": int, "effect_size": float, "study_type": str, "relevance_score": float}}, ...]\n\n'
         f"Papers:\n{abstracts_text}"
     )
@@ -398,7 +399,7 @@ def run_searches(
     # 10 papers = 1 LLM batch per link → eliminates token truncation risk entirely.
     _PRE_FILTER_N = 10
     for link in LINK_WEIGHTS:
-        has_abstract = [p for p in papers_by_link[link] if p.abstract and len(p.abstract) > 80]
+        has_abstract = [p for p in papers_by_link[link] if p.abstract and len(p.abstract) > 200]
         no_abstract_count = len(papers_by_link[link]) - len(has_abstract)
         if no_abstract_count:
             print(f"[sources]   Dropped {no_abstract_count} no-abstract papers for {link}", flush=True)
