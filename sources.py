@@ -298,6 +298,16 @@ def score_paper(paper: Paper) -> float:
     quality = STUDY_WEIGHTS.get(paper.study_type, 1.0)
     sample_wt = math.log(max(paper.n, 10) + 1)
     effect = min(abs(paper.effect_size), 1.0)   # cap at 1.0 — no outlier gaming
+    # Most abstracts don't state an explicit effect size (Cohen's d / r).
+    # When LLM returns 0.0, use a conservative study-type default so relevant
+    # papers aren't silently zeroed out of the score.
+    if effect == 0.0:
+        _EFFECT_FALLBACKS = {
+            "meta_analysis": 0.50, "systematic_review": 0.40, "rct": 0.35,
+            "prospective_cohort": 0.25, "cross_sectional": 0.15,
+            "case_control": 0.20, "case_study": 0.10,
+        }
+        effect = _EFFECT_FALLBACKS.get(paper.study_type, 0.15)
     relevance = max(0.0, min(paper.relevance_score, 1.0))
     return effect * sample_wt * quality * relevance
 
@@ -382,9 +392,18 @@ def run_searches(
             _add_papers(link, results)
             time.sleep(0.15)
 
-    # 3. LLM extraction of stats from abstracts
+    # 3. Pre-filter: keep top 10 by citation count per link before LLM extraction.
+    # cited_by_count is a free quality proxy (already fetched from OpenAlex).
+    # 10 papers = 1 LLM batch per link → eliminates token truncation risk entirely.
+    _PRE_FILTER_N = 10
+    for link in LINK_WEIGHTS:
+        if len(papers_by_link[link]) > _PRE_FILTER_N:
+            papers_by_link[link] = sorted(
+                papers_by_link[link], key=lambda p: p.cited_by_count, reverse=True
+            )[:_PRE_FILTER_N]
+
     raw_counts = {link: len(papers_by_link[link]) for link in LINK_WEIGHTS}
-    print(f"[sources] Raw paper counts before extraction: {raw_counts}", flush=True)
+    print(f"[sources] Paper counts after pre-filter (top {_PRE_FILTER_N} by citations): {raw_counts}", flush=True)
     print("[sources] Extracting stats via OpenAI...", flush=True)
     for link in LINK_WEIGHTS:
         papers = papers_by_link[link]
