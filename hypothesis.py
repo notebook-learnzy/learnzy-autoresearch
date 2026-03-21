@@ -54,7 +54,7 @@ QUERIES = {
         '"sleep disturbance" AND "PHQ-9" AND "prospective cohort"',
         '"heart rate variability" AND "depressive symptoms" AND "review"',
         '"RMSSD" AND "depression" AND "systematic review"',
-        '"HRV AND sleep AND "PHQ-9" AND "college students"',
+        'HRV sleep PHQ-9 depression college students',
     ],
 
     "D2_focus_anxiety": [
@@ -62,7 +62,7 @@ QUERIES = {
         '"autonomic nervous system" AND "GAD-7" AND "systematic review"',
         '"sleep quality" AND "anxiety disorder" AND "prospective study"',
         '"HRV biofeedback" AND "anxiety" AND "RCT"',
-        '"HRV AND sleep AND "GAD-7" AND "young adults"',
+        'HRV sleep GAD-7 anxiety young adults',
     ],
 
     "D3_focus_insomnia": [
@@ -70,7 +70,7 @@ QUERIES = {
         '"autonomic function" AND "insomnia" AND "longitudinal study"',
         '"sleep efficiency" AND "HRV" AND "prospective cohort"',
         '"nocturnal HRV" AND "insomnia" AND "systematic review"',
-        '"HRV AND sleep AND "ISI" AND "university students"',
+        'HRV sleep insomnia severity index university students',
     ],
 }
 
