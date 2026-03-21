@@ -144,7 +144,7 @@ def search_openalex(query: str, max_results: int = 50, min_year: int = 2009) -> 
         "search": query,
         "per-page": min(max_results, 200),
         "sort": "cited_by_count:desc",
-        "filter": f"publication_year:>{min_year},type:journal-article",
+        "filter": f"publication_year:>{min_year},type:article",
         "select": "id,title,abstract_inverted_index,publication_year,doi,"
                   "primary_location,cited_by_count,ids",
         "mailto": _OPENALEX_MAILTO,
