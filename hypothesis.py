@@ -42,6 +42,7 @@ QUERIES = {
         '"working memory" AND "GPA" AND "meta-analysis"',
         '"executive function" AND "exam scores" AND "systematic review"',
         '"attention" AND "academic success" AND "cohort study"',
+        '"cognitive abilities" AND "school performance" AND "adolescent students"',
     ],
 
     "D1_focus_depression": [
@@ -71,14 +72,15 @@ QUERIES = {
 # Agent can tighten or loosen these to improve signal quality.
 
 INCLUSION = {
-    "min_sample_size": 50,      # exclude very small studies (n < 50)
-    "min_year": 2015,           # focus on more recent evidence
+    "min_sample_size": 30,      # include smaller studies to widen search
+    "min_year": 2010,           # include older studies for broader evidence
     "max_results_per_query": 50,
     "study_types": [            # which study designs to include
         "meta_analysis",
         "systematic_review",
         "rct",
         "prospective_cohort",
+        "cross_sectional",      # add cross-sectional studies for wider coverage
     ],
 }
 
@@ -88,10 +90,10 @@ INCLUSION = {
 # Total across all links ideally stays under ~300 API calls to fit in TIME_BUDGET.
 
 SEARCH_DEPTH = {
-    "A_hrv_cognition":    40,
-    "B_sleep_cognition":  40,
-    "C_cognition_grades": 60,
-    "D1_focus_depression": 40,
-    "D2_focus_anxiety":   40,
-    "D3_focus_insomnia":  40,
+    "A_hrv_cognition":    35,
+    "B_sleep_cognition":  35,
+    "C_cognition_grades": 80,
+    "D1_focus_depression": 35,
+    "D2_focus_anxiety":   35,
+    "D3_focus_insomnia":  35,
 }
