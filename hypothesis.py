@@ -24,11 +24,11 @@ DO NOT modify sources.py, agent.py, or the GitHub Actions workflow.
 
 QUERIES = {
     "A_hrv_cognition": [
-        'resting heart rate variability executive function healthy adults',
-        'baseline RMSSD working memory performance',
-        'vagal tone cognitive performance prediction',
-        'heart rate variability attention memory meta-analysis',
-        'autonomic nervous system neurocognitive performance',
+        '"heart rate variability" AND "executive function" AND "meta-analysis"',
+        '"vagal tone" AND "working memory" AND "systematic review"',
+        '"RMSSD" AND "cognitive performance" AND "adults"',
+        '"parasympathetic" AND "attention" AND "cross-sectional"',
+        '"autonomic nervous system" AND "memory" AND "longitudinal study"',
     ],
 
     "B_sleep_cognition": [
@@ -79,8 +79,8 @@ QUERIES = {
 # Agent can tighten or loosen these to improve signal quality.
 
 INCLUSION = {
-    "min_sample_size": 20,      # HRV studies often n=20-40; 50 was filtering too much
-    "min_year": 2010,           # broader window to include landmark papers
+    "min_sample_size": 50,      # strict = higher quality papers, matches best run
+    "min_year": 2015,           # recent literature only, matches best run
     "max_results_per_query": 50,
     "study_types": [            # which study designs to include
         "meta_analysis",
