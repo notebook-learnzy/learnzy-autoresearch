@@ -1,4 +1,4 @@
-Here's the complete updated agent memory file reflecting the changes from this run:
+Certainly! Here's the updated agent memory file reflecting the latest run's changes:
 
 ---
 
@@ -58,12 +58,15 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link C — Cognition → Grades (current best score: 0.153)
+## Link C — Cognition → Grades (current best score: 1.837)
 
 ### ✗ What failed:
 - `"working memory" AND "GPA" AND "meta-analysis"` — did not improve results this run
 - `"executive function" AND "exam scores" AND "systematic review"` — did not improve results this run
 - Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
+
+### ✓ What worked:
+- Improvement observed this run: Score increased from 0.153 to 1.837.
 
 ### ✓ Directions to try next:
 - `working memory capacity academic achievement meta-analysis`
@@ -101,10 +104,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D3 — HRV/Sleep → Insomnia (current best score: 0.759)
-
-### ✓ What has worked:
-- `"nocturnal HRV" AND "insomnia" AND "systematic review"` → found relevant papers
+## Link D3 — HRV/Sleep → Insomnia (current best score: 0.000)
 
 ### ✗ What failed:
 - Most D3 queries return 2 or fewer papers after filtering.
@@ -133,8 +133,8 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | Run      | Score   | Status        | What changed                                          |
 | -------- | ------- | ------------- | ----------------------------------------------------- |
 | baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0                   |
-| this run | 0.022584| no_improvement | A=0.838; B=1.130; C=0.153; D1=1.683; D2=1.916; D3=0.759 |
+| this run | 0.031327| improved      | A=0.838; B=1.130; C=1.837; D1=1.683; D2=1.916; D3=0.000 |
 
 ---
 
-With this update, the agent can continue refining its strategies and maintain focus on improving the weakest links with insights gained from the latest run.
+With these updates, the agent can proceed with a clearer understanding of strategies that work and areas that require further exploration.

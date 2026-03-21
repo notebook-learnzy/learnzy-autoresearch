@@ -40,13 +40,12 @@ QUERIES = {
     ],
 
     "C_cognition_grades": [
-        '"cognitive function" AND "academic performance" AND "longitudinal study"',
-        '"working memory" AND "GPA" AND "meta-analysis"',
-        '"executive function" AND "exam scores" AND "systematic review"',
-        '"attention" AND "academic success" AND "cohort study"',
-        '"cognitive abilities" AND "school performance" AND "university students"',
-        '"neurocognitive performance" AND "academic achievement" AND "prospective study"',
-        '"executive functioning" AND "academic success" AND "longitudinal analysis"',
+        '"neuropsychological scores" AND "GPA" AND "prospective study"',
+        '"cognitive function" AND "standardized test scores" AND "longitudinal"',
+        '"executive cognitive functions" AND "academic success" AND "prospective cohort"',
+        '"working memory" AND "exam performance" AND "university students"',
+        '"attention" AND "academic achievement" AND "cohort study"',
+        '"fluid intelligence" AND "academic results" AND "education outcomes"',
     ],
 
     "D1_focus_depression": [
