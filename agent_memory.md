@@ -1,3 +1,7 @@
+Here's the updated agent memory file with the latest run history and relevant updates:
+
+---
+
 # Agent Memory — Directional Knowledge Per Link
 
 This file is your persistent memory across runs. Read it BEFORE proposing any hypothesis.py change.
@@ -14,7 +18,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"resting HRV"` / `"baseline RMSSD"` queries → papers have low citation counts, get pre-filtered out by top-10 citation filter before LLM sees them
 - `"vagal tone" AND "working memory" AND "systematic review"` → no relevant papers found
 - `"parasympathetic" AND "attention"` → returns autonomic physiology papers, not cognitive performance
-- `"parasympathetic activity" AND "cognitive control" AND "neuroscience" AND "young adults"` 
+- `"parasympathetic activity" AND "cognitive control" AND "neuroscience" AND "young adults"`
 - `"cardiac vagal control" AND "cognitive function" AND "university students"`
 - `"HF-HRV" AND "executive function" AND "neuroscience"`
 - `"autonomic flexibility" AND "cognitive performance" AND "healthy young adults"`
@@ -34,7 +38,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ## Link B — Sleep → Cognition (current best score: 2.531)
 
-### ✓ What has worked:
+### ✓ What worked:
 - `"sleep deprivation" AND "cognitive performance" AND "systematic review"` → found relevant papers
 - `"sleep quality" AND "memory consolidation" AND "meta-analysis"` → good results
 
@@ -54,9 +58,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"executive function" AND "exam scores" AND "systematic review"` — found papers
 
 ### ✗ What has NOT worked:
-- Broad `"academic performance"` queries → return education policy papers, not psychometric studies
+- Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
 
-### ✓ What failed:
+### ✗ What failed:
 - No specific failed queries in the previous execution resulted in dropped score.
 
 ### ✓ Directions to try next:
@@ -98,9 +102,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"nocturnal HRV" AND "insomnia" AND "systematic review"` → found relevant papers
 
 ### ✗ What has NOT worked:
-- Most D3 queries return 2 or fewer papers after filtering
+- Most D3 queries return 2 or fewer papers after filtering.
 
-### ✓ What failed:
+### ✗ What failed:
 - Other queries didn't improve the results this run.
 
 ### ✓ Directions to try next:
@@ -127,3 +131,12 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | -------- | ------- | ------------- | ----------------------------------------------------- |
 | baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0               |
 | this run | 0.014187| no_improvement | A=0.506; B=2.531; C=0.334; D1=0.964; D2=1.107; D3=0.294 |
+
+THIS RUN:
+- status: no_improvement
+- evidence_score: 0.011425 (best so far: 0.031325)
+- link scores: A_hrv_cognition=0.000 | B_sleep_cognition=1.076 | C_cognition_grades=0.074 | D1_focus_depression=0.260 | D2_focus_anxiety=1.063 | D3_focus_insomnia=0.979
+
+--- 
+
+This is the complete updated memory file reflecting the results and adjustments from the latest run.
