@@ -336,8 +336,10 @@ def evaluate_evidence(papers_by_link: Dict[str, List[Paper]]) -> float:
         for link, papers in papers_by_link.items()
     }
     total = sum(LINK_WEIGHTS.get(l, 0) * link_scores.get(l, 0.0) for l in LINK_WEIGHTS)
-    # Normalize against theoretical ceiling
-    max_possible = sum(LINK_WEIGHTS.values()) * (TOP_K_PAPERS * 5.0 * math.log(10001) * 1.0)
+    # Normalize against theoretical ceiling.
+    # compute_link_score returns an AVERAGE (not sum), so max link_score =
+    # max_paper_score = 1.0 * log(10001) * 5.0 * 1.0. Do NOT multiply by TOP_K_PAPERS.
+    max_possible = sum(LINK_WEIGHTS.values()) * (5.0 * math.log(10001) * 1.0)
     normalized = total / max_possible if max_possible > 0 else 0.0
     return round(min(normalized, 1.0), 6)
 
