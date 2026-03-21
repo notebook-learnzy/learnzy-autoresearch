@@ -1,4 +1,4 @@
-Sure! Here’s the complete updated agent memory file reflecting the latest run with the specified changes:
+Sure! Here's the complete updated agent memory file reflecting the changes from this run:
 
 ---
 
@@ -113,7 +113,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ### ✗ What has NOT worked:
 - Most D3 queries return 2 or fewer papers after filtering.
-- Queries from this run did not improve results.
+- Queries from this run did not improve the results.
 
 ### ✗ What failed:
 - Other queries didn't improve the results this run.
@@ -145,4 +145,4 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-With this update, the agent can continue refining its strategies and focus on improving the weakest links with insights from the latest run.
+With this update, the agent can continue refining its strategies and maintain focus on improving the weakest links with insights gained from the latest run.
