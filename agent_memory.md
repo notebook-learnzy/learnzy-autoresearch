@@ -1,4 +1,4 @@
-Here's the complete updated agent memory file reflecting the latest run's changes:
+Here's the updated agent memory file reflecting this run's changes:
 
 ---
 
@@ -144,7 +144,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.031327| improved      | A=0.838; B=1.130; C=1.837; D1=1.683; D2=1.916; D3=0.000 |
 | this run | 0.022117| no_improvement| D1=0.448; D2=3.527; C=1.100; D3=0.000                |
 | this run | 0.017813| no_improvement| D3=0.179; D2=2.998; (C and A did not improve)        |
-| this run | 0.012343| no_improvement| Sources for D3 did not yield improvements             |
+| this run | 0.014162| no_improvement| D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 
 ---
 
