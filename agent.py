@@ -38,8 +38,8 @@ RESULTS_FILE = ROOT / "results.tsv"
 PROGRAM_FILE = ROOT / "program.md"
 RUN_LOG = ROOT / "run.log"
 
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-AGENT_MODEL = "claude-sonnet-4-6"  # main reasoning model for hypothesis modification
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+AGENT_MODEL = "gpt-4o"  # main reasoning model for hypothesis modification
 
 
 # ─── GIT HELPERS ──────────────────────────────────────────────────────────────
@@ -111,17 +111,16 @@ def _claude_api(messages: list, model: str = AGENT_MODEL, max_tokens: int = 4096
         "messages": messages,
     }).encode()
     req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages",
+        "https://api.openai.com/v1/chat/completions",
         data=payload,
         headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
+            "Authorization": f"Bearer {OPENAI_API_KEY}",
             "content-type": "application/json",
         },
     )
     with urllib.request.urlopen(req, timeout=60) as r:
         response = json.loads(r.read())
-    return response["content"][0]["text"]
+    return response["choices"][0]["message"]["content"]
 
 
 def propose_hypothesis_modification(
@@ -188,8 +187,8 @@ def main() -> None:
     print(f"[agent] Best score so far: {best_score:.6f}", flush=True)
 
     # 4. Ask Claude to propose modification
-    if not ANTHROPIC_API_KEY:
-        print("[agent] WARNING: No ANTHROPIC_API_KEY — skipping hypothesis modification", flush=True)
+    if not OPENAI_API_KEY:
+        print("[agent] WARNING: No OPENAI_API_KEY — skipping hypothesis modification", flush=True)
         new_hypothesis = current_hypothesis
         description = "no-api-key (baseline)"
     else:

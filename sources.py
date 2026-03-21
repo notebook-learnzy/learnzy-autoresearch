@@ -66,7 +66,7 @@ STUDY_WEIGHTS: Dict[str, float] = {
 
 TOP_K_PAPERS = 10  # only top-10 papers per link count (prevents flooding)
 
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 
 
 # ─── PAPER DATACLASS ──────────────────────────────────────────────────────────
@@ -200,13 +200,13 @@ def search_openalex(query: str, max_results: int = 50, min_year: int = 2009) -> 
 
 def _claude_extract_paper_stats(papers: List[Paper], link_name: str) -> List[Paper]:
     """
-    Use Claude Haiku to extract n, effect_size, study_type, and relevance_score
+    Use GPT-4o-mini to extract n, effect_size, study_type, and relevance_score
     from paper abstracts for a given hypothesis link.
 
     Analog of the tokenizer processing raw text into model-ready tensors.
-    Uses claude-haiku-4-5 for cost efficiency (~$0.001 per batch of 20 papers).
+    Uses gpt-4o-mini for cost efficiency (~$0.001 per batch of 20 papers).
     """
-    if not ANTHROPIC_API_KEY or not papers:
+    if not OPENAI_API_KEY or not papers:
         return papers
 
     LINK_DESCRIPTIONS = {
@@ -245,24 +245,23 @@ def _claude_extract_paper_stats(papers: List[Paper], link_name: str) -> List[Pap
     )
 
     payload = json.dumps({
-        "model": "claude-haiku-4-5-20251001",
+        "model": "gpt-4o-mini",
         "max_tokens": 1024,
         "messages": [{"role": "user", "content": prompt}],
     }).encode()
 
     req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages",
+        "https://api.openai.com/v1/chat/completions",
         data=payload,
         headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
+            "Authorization": f"Bearer {OPENAI_API_KEY}",
             "content-type": "application/json",
         },
     )
     try:
         with urllib.request.urlopen(req, timeout=45) as r:
             response = json.loads(r.read())
-        text = response["content"][0]["text"].strip()
+        text = response["choices"][0]["message"]["content"].strip()
         start = text.find("[")
         end = text.rfind("]") + 1
         if start >= 0 and end > start:
