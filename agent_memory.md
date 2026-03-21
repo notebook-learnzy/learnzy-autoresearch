@@ -1,4 +1,4 @@
-Here's the updated agent memory file with the changes incorporated based on this run's performance:
+Here's the updated agent memory file with the latest changes and insights incorporated based on this run's performance:
 
 ---
 
@@ -49,7 +49,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link C — Cognition → Grades (current best score: 0.334)
+## Link C — Cognition → Grades (current best score: 2.949)
 
 ### ✓ Promising signs:
 - `"working memory" AND "GPA" AND "meta-analysis"` — showed early promise
@@ -80,7 +80,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D2 — HRV/Sleep → Anxiety (current best score: 1.107 — STRONGEST LINK)
+## Link D2 — HRV/Sleep → Anxiety (current best score: 2.398 — STRONGEST LINK)
 
 ### ✓ What worked (PRESERVE THESE):
 - `"HRV" AND "anxiety prediction" AND "meta-analysis"` → consistently finds high-relevance papers
@@ -126,7 +126,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | Run      | Score   | Status        | What changed                                          |
 | -------- | ------- | ------------- | ----------------------------------------------------- |
 | baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0                   |
-| this run | 0.009471| no_improvement | A=0.000; B=2.185; C=0.335; D1=1.706; D2=2.212; D3=0.000|
+| this run | 0.009471| no_improvement | A=0.000; B=2.185; C=2.949; D1=1.065; D2=2.398; D3=0.000|
 
 --- 
 
