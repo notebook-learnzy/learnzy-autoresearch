@@ -46,6 +46,7 @@ QUERIES = {
         '"attention" AND "academic success" AND "cohort study"',
         '"cognitive abilities" AND "school performance" AND "university students"',
         '"neurocognitive performance" AND "academic achievement" AND "prospective study"',
+        '"executive functioning" AND "academic success" AND "longitudinal analysis"',
     ],
 
     "D1_focus_depression": [
@@ -96,10 +97,10 @@ INCLUSION = {
 # Total across all links ideally stays under ~300 API calls to fit in TIME_BUDGET.
 
 SEARCH_DEPTH = {
-    "A_hrv_cognition":    25,
-    "B_sleep_cognition":  25,
-    "C_cognition_grades": 100,  # allocate more depth to weakest link
-    "D1_focus_depression": 40,
+    "A_hrv_cognition":    20,
+    "B_sleep_cognition":  20,
+    "C_cognition_grades": 150,  # increase depth to focus on finding more substantial evidence
+    "D1_focus_depression": 30,
     "D2_focus_anxiety":   40,
     "D3_focus_insomnia":  40,
 }
