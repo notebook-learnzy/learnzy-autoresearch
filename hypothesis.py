@@ -24,11 +24,11 @@ DO NOT modify sources.py, agent.py, or the GitHub Actions workflow.
 
 QUERIES = {
     "A_hrv_cognition": [
-        'vagal tone executive function prefrontal cortex healthy adults',
-        'RMSSD working memory cognitive control students',
-        'heart rate variability cognitive performance systematic review',
-        '"HF-HRV" AND "attention" AND "healthy"',
-        'parasympathetic nervous system memory consolidation learning',
+        'resting heart rate variability executive function healthy adults',
+        'baseline RMSSD working memory performance',
+        'vagal tone cognitive performance prediction',
+        'heart rate variability attention memory meta-analysis',
+        'autonomic nervous system neurocognitive performance',
     ],
 
     "B_sleep_cognition": [
