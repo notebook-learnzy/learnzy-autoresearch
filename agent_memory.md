@@ -1,3 +1,7 @@
+Here's the complete updated memory file with the requested changes incorporated:
+
+---
+
 # Agent Memory — Directional Knowledge Per Link
 
 This file is your persistent memory across runs. Read it BEFORE proposing any hypothesis.py change. It tells you what has been tried, what worked, and what to avoid re-trying.
@@ -25,7 +29,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"cardiac vagal control" AND "cognitive function" AND "neuroscience"`
 - `"autonomic flexibility" AND "cognition" AND "systematic review"`
 - `"heart rate variability" AND "cognitive control" AND "student population"`
-- `"RMSSD" AND "working memory" AND "meta-analysis" AND "students"`
+- `"RMSSD" AND "working memory" AND "meta-analysis" AND "students"` 
 
 ### ✓ What worked:
 - Improvements observed in this run: Score increased from 0.528 to 0.838.
@@ -60,9 +64,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"working memory" AND "GPA" AND "meta-analysis"` — did not improve results this run
 - `"executive function" AND "exam scores" AND "systematic review"` — did not improve results this run
 - Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
-
-### ✗ What has NOT worked:
-- Queries from this run that did not improve results.
+- Existing queries from this run did not improve results.
 
 ### ✓ What worked:
 - No improvements in this run.
@@ -85,11 +87,11 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What failed:
 - Queries from this run did not improve results.
 
-### ✓ What worked:
+### ✓ What worked this run:
 - Improvements observed in this run: Score increased from 0.503 to 1.118.
 
 ### ✓ Directions to try next:
-- Continue leveraging successful queries, or seek additional query variations.
+- Continue leveraging successful queries or seek additional query variations.
 
 ---
 
@@ -110,7 +112,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ### ✗ What failed:
 - Most D3 queries return 2 or fewer papers after filtering.
-- Queries from this run did not improve the results.
+- Queries from this run did not improve results.
 - `"HRV" AND "insomnia severity" AND "meta-analysis"`
 - `"nocturnal HRV" AND "insomnia" AND "systematic review"`
 
@@ -147,7 +149,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.022117| no_improvement| D1=0.448; D2=3.527; C=1.100; D3=0.000                |
 | this run | 0.017813| no_improvement| D3=0.179; D2=2.998; (C and A did not improve)        |
 | this run | 0.014162| no_improvement| D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
-| **this run** | **0.021289**| **no_improvement**| A_hrv_cognition=0.000; C_cognition_grades=0.053; D3_focus_insomnia=0.000 |
+| **this run** | **0.021289**| **no_improvement**| A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
 
 --- 
 
