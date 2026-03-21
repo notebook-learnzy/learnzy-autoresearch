@@ -36,6 +36,7 @@ ROOT = Path(__file__).parent
 HYPOTHESIS_FILE = ROOT / "hypothesis.py"
 RESULTS_FILE = ROOT / "results.tsv"
 PROGRAM_FILE = ROOT / "program.md"
+MEMORY_FILE = ROOT / "agent_memory.md"
 RUN_LOG = ROOT / "run.log"
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
@@ -122,15 +123,24 @@ def propose_hypothesis_modification(
     recent_results: str,
     program_instructions: str,
     best_score: float,
-) -> str:
+    agent_memory: str,
+) -> tuple[str, str]:
     """
-    Ask Claude to propose a modified hypothesis.py based on recent results.
-    Returns the full text of the new hypothesis.py.
+    Ask GPT-4o to reason about the current state THEN propose a modified hypothesis.py.
+    Returns (new_hypothesis_py_text, reasoning_text).
+
+    Two-step approach (mirrors karpathy/autoresearch):
+      Step 1 — Reasoning: analyse weakest links, consult memory, decide strategy
+      Step 2 — Implementation: write the new hypothesis.py
+
+    The reasoning is saved to agent_memory.md so future runs learn from it.
     """
-    messages = [
-        {
-            "role": "user",
-            "content": f"""{program_instructions}
+    # Step 1: Ask for explicit chain-of-thought reasoning
+    reasoning_prompt = f"""{program_instructions}
+
+---
+AGENT MEMORY (what has been tried across ALL previous runs — read before reasoning):
+{agent_memory}
 
 ---
 CURRENT HYPOTHESIS.PY:
@@ -145,13 +155,109 @@ RECENT RESULTS (most recent last):
 
 CURRENT BEST EVIDENCE SCORE: {best_score:.6f}
 
-Your task: propose a modification to hypothesis.py that you think will improve the evidence_score.
-Focus on the weakest links shown in recent results.
-Return ONLY the complete new hypothesis.py file content — no explanation, no markdown fences, just the Python file.
-""",
-        }
-    ]
-    return _claude_api(messages)
+Before writing any code, reason through the following questions:
+1. Which hypothesis links have the lowest scores right now? Why might they be low?
+2. What strategies from AGENT MEMORY have already been tried and failed for those links?
+3. What NEW search direction (not yet tried) do you propose, and why do you think it will work?
+4. What is the single highest-leverage change to make this run?
+
+Write your reasoning clearly — it will be saved and used by future runs to avoid repeated mistakes.
+Format: <reasoning>your analysis here</reasoning>
+"""
+    reasoning_response = _claude_api([{"role": "user", "content": reasoning_prompt}], max_tokens=1024)
+
+    # Extract reasoning block
+    reasoning = ""
+    if "<reasoning>" in reasoning_response and "</reasoning>" in reasoning_response:
+        start = reasoning_response.index("<reasoning>") + len("<reasoning>")
+        end = reasoning_response.index("</reasoning>")
+        reasoning = reasoning_response[start:end].strip()
+    else:
+        reasoning = reasoning_response.strip()
+
+    print(f"[agent] Reasoning: {reasoning[:300]}...", flush=True)
+
+    # Step 2: Ask for the actual hypothesis.py implementation
+    implementation_prompt = f"""{program_instructions}
+
+---
+AGENT MEMORY:
+{agent_memory}
+
+---
+CURRENT HYPOTHESIS.PY:
+```python
+{current_hypothesis}
+```
+
+RECENT RESULTS:
+```
+{recent_results}
+```
+
+YOUR REASONING FROM STEP 1:
+{reasoning}
+
+Now implement the change. Return ONLY the complete new hypothesis.py file content — no explanation, no markdown fences, just the Python file.
+"""
+    new_hypothesis = _claude_api([{"role": "user", "content": implementation_prompt}], max_tokens=4096)
+    return new_hypothesis, reasoning
+
+
+def update_agent_memory(
+    memory_content: str,
+    evidence_score: float,
+    best_score: float,
+    status: str,
+    papers_by_link: dict,
+    current_hypothesis: str,
+    reasoning: str = "",
+) -> str:
+    """Ask GPT-4o-mini to append a concise memory entry for this run."""
+    import sources as _sources
+    link_scores = {l: _sources.compute_link_score(p) for l, p in papers_by_link.items()}
+    scores_str = " | ".join(f"{l}={s:.3f}" for l, s in link_scores.items())
+
+    prompt = f"""You are updating an agent memory file that tracks which search strategies work or fail for each hypothesis link.
+
+CURRENT MEMORY FILE:
+{memory_content}
+
+THIS RUN:
+- status: {status}
+- evidence_score: {evidence_score:.6f} (best so far: {best_score:.6f})
+- link scores: {scores_str}
+
+AGENT REASONING THIS RUN (why it made the changes it made):
+{reasoning[:800] if reasoning else "(no reasoning recorded)"}
+
+HYPOTHESIS.PY USED:
+```python
+{current_hypothesis[:1500]}
+```
+
+Task:
+1. Append a row to the "Run History Summary" table
+2. For any link whose score IMPROVED this run: add a "✓ What worked" bullet under that link's section
+3. For any link whose score is still 0 or got worse: add a "✗ What failed" bullet with the specific queries that didn't work
+4. If the reasoning revealed a new insight, add it to the relevant link section
+
+Return the COMPLETE updated memory file. Keep it concise — prune outdated bullets if memory grows too long."""
+
+    try:
+        result = _claude_api(
+            [{"role": "user", "content": prompt}],
+            model="gpt-4o-mini",
+            max_tokens=3000,
+        )
+        # Strip markdown fences if added
+        if result.startswith("```"):
+            lines = result.splitlines()
+            result = "\n".join(l for l in lines if not l.startswith("```"))
+        return result
+    except Exception as e:
+        print(f"[agent] Memory update failed: {e}", flush=True)
+        return memory_content
 
 
 # ─── MAIN EXPERIMENT LOOP ─────────────────────────────────────────────────────
@@ -170,6 +276,7 @@ def main() -> None:
     # 3. Read current state
     current_hypothesis = HYPOTHESIS_FILE.read_text()
     program_instructions = PROGRAM_FILE.read_text() if PROGRAM_FILE.exists() else ""
+    agent_memory = MEMORY_FILE.read_text() if MEMORY_FILE.exists() else ""
 
     # Read last 20 rows of results.tsv for context
     recent_results = ""
@@ -179,6 +286,7 @@ def main() -> None:
 
     best_score = get_best_score()
     print(f"[agent] Best score so far: {best_score:.6f}", flush=True)
+    print(f"[agent] Memory size: {len(agent_memory)} chars", flush=True)
 
     # 4. Ask Claude to propose modification
     if not OPENAI_API_KEY:
@@ -186,10 +294,10 @@ def main() -> None:
         new_hypothesis = current_hypothesis
         description = "no-api-key (baseline)"
     else:
-        print("[agent] Calling Claude to propose hypothesis modification...", flush=True)
+        print("[agent] Calling Claude to reason + propose hypothesis modification...", flush=True)
         try:
-            new_hypothesis = propose_hypothesis_modification(
-                current_hypothesis, recent_results, program_instructions, best_score
+            new_hypothesis, reasoning = propose_hypothesis_modification(
+                current_hypothesis, recent_results, program_instructions, best_score, agent_memory
             )
             # Strip markdown fences if Claude added them
             if new_hypothesis.startswith("```"):
@@ -201,6 +309,7 @@ def main() -> None:
         except Exception as e:
             print(f"[agent] Claude API error: {e} — using current hypothesis", flush=True)
             new_hypothesis = current_hypothesis
+            reasoning = f"API error: {e}"
             description = f"api-error: {e}"
 
     # 5. Write modified hypothesis.py and commit tentatively
@@ -257,7 +366,24 @@ def main() -> None:
     # 8. Append to results.tsv
     append_result(commit_hash, evidence_score, total_papers, status, description)
 
-    # 9. Print structured summary (grep-friendly, analog to train.py summary block)
+    # 9. Update agent_memory.md with this run's reasoning + outcomes
+    if OPENAI_API_KEY and MEMORY_FILE.exists():
+        print("[agent] Updating agent memory...", flush=True)
+        updated_memory = update_agent_memory(
+            memory_content=agent_memory,
+            evidence_score=evidence_score,
+            best_score=best_score,
+            status=status,
+            papers_by_link=papers_by_link,
+            current_hypothesis=new_hypothesis,
+            reasoning=reasoning,
+        )
+        MEMORY_FILE.write_text(updated_memory)
+        git("add agent_memory.md")
+        git(f'commit --amend -m "{commit_msg}{" [reset]" if status != "improved" else ""} [+memory]" --allow-empty')
+        print(f"[agent] Memory updated ({len(updated_memory)} chars)", flush=True)
+
+    # 10. Print structured summary (grep-friendly, analog to train.py summary block)
     sources.print_summary(
         evidence_score=evidence_score,
         papers_by_link=papers_by_link,
