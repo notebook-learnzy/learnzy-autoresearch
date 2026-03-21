@@ -1,4 +1,4 @@
-Here's the updated agent memory file:
+Here's the updated agent memory file with the changes incorporated based on this run's performance:
 
 ---
 
@@ -23,9 +23,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"autonomic flexibility" AND "cognitive performance" AND "healthy young adults"`
 - `"vagal tone" AND "cognitive function" AND "student population"`
 - Queries from this run that did not improve results.
-
-### ✗ What failed:
-- Queries this run did not improve results.
+- **✗ What failed**: Queries this run did not improve results, no improvements noted.
 
 ### ✓ Directions to try next:
 - Search for the specific well-known papers: `Forte 2019 heart rate variability cognitive performance meta-analysis`
@@ -60,9 +58,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What has NOT worked:
 - Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
 - Queries from this run did not improve results.
-
-### ✗ What failed:
-- Queries this run did not improve the results.
+- **✗ What failed**: Queries this run did not improve results.
 
 ### ✓ Directions to try next:
 - `working memory capacity academic achievement meta-analysis`
@@ -105,9 +101,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What has NOT worked:
 - Most D3 queries return 2 or fewer papers after filtering.
 - Queries from this run did not improve results.
-
-### ✗ What failed:
-- Other queries didn't improve the results this run.
+- **✗ What failed**: Other queries didn't improve the results this run.
 
 ### ✓ Directions to try next:
 - `sleep efficiency heart rate variability insomnia disorder`
@@ -131,9 +125,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 | Run      | Score   | Status        | What changed                                          |
 | -------- | ------- | ------------- | ----------------------------------------------------- |
-| baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0               |
-| this run | 0.009471| no_improvement | A=0.000; B=0.378; C=0.423; D1=0.338; D2=0.850; D3=0.979 |
+| baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0                   |
+| this run | 0.009471| no_improvement | A=0.000; B=2.185; C=0.335; D1=1.706; D2=2.212; D3=0.000|
 
----
+--- 
 
-With this complete updated memory file, the agent can refine its strategies and focus on improving the weakest links based on fresh insights.
+With this update, the agent can continue refining its strategies and focus on improving the weakest links with insights from the latest run.
