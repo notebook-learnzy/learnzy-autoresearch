@@ -1,7 +1,3 @@
-Here's the updated agent memory file with the most recent run's changes reflected:
-
----
-
 # Agent Memory — Directional Knowledge Per Link
 
 This file is your persistent memory across runs. Read it BEFORE proposing any hypothesis.py change. It tells you what has been tried, what worked, and what to avoid re-trying.
@@ -43,7 +39,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link B — Sleep → Cognition (current best score: 1.130)
+## Link B — Sleep → Cognition (current best score: 1.724)
 
 ### ✓ What worked:
 - `"sleep deprivation" AND "cognitive performance" AND "systematic review"` → found relevant papers
@@ -58,15 +54,18 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link C — Cognition → Grades (current best score: 1.837)
+## Link C — Cognition → Grades (current best score: 0.053)
 
 ### ✗ What failed:
 - `"working memory" AND "GPA" AND "meta-analysis"` — did not improve results this run
 - `"executive function" AND "exam scores" AND "systematic review"` — did not improve results this run
 - Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
 
+### ✗ What has NOT worked:
+- Queries from this run that did not improve results.
+
 ### ✓ What worked:
-- Improvement observed this run: Score increased from 1.100 to 1.837.
+- No improvements in this run.
 
 ### ✓ Directions to try next:
 - `working memory capacity academic achievement meta-analysis`
@@ -76,7 +75,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D1 — HRV/Sleep → Depression (current best score: 1.683)
+## Link D1 — HRV/Sleep → Depression (current best score: 1.118)
 
 ### ✓ What has worked:
 - `"HRV" AND "depression risk" AND "meta-analysis"` → found relevant papers
@@ -86,12 +85,15 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What failed:
 - Queries from this run did not improve results.
 
-### ✓ What improved:
-- Improvements observed in this run: Score increased from 0.448 to 1.683.
+### ✓ What worked:
+- Improvements observed in this run: Score increased from 0.503 to 1.118.
+
+### ✓ Directions to try next:
+- Continue leveraging successful queries, or seek additional query variations.
 
 ---
 
-## Link D2 — HRV/Sleep → Anxiety (current best score: 1.916 — STRONGEST LINK)
+## Link D2 — HRV/Sleep → Anxiety (current best score: 3.049 — STRONGEST LINK)
 
 ### ✓ What worked (PRESERVE THESE):
 - `"HRV" AND "anxiety prediction" AND "meta-analysis"` → consistently finds high-relevance papers
@@ -104,7 +106,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D3 — HRV/Sleep → Insomnia (current best score: 0.503)
+## Link D3 — HRV/Sleep → Insomnia (current best score: 0.000)
 
 ### ✗ What failed:
 - Most D3 queries return 2 or fewer papers after filtering.
@@ -112,16 +114,16 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"HRV" AND "insomnia severity" AND "meta-analysis"`
 - `"nocturnal HRV" AND "insomnia" AND "systematic review"`
 
+### ✗ What has NOT worked:
+- Existing queries are either too narrow or not surfacing relevant papers due to a lack of specific population targeting or too generic terms filtering through.
+
 ### ✓ What worked:
-- Score increased from 0.000 to 0.503 this run.
+- No improvements in this run.
 
 ### ✓ Directions to try next:
 - `sleep efficiency heart rate variability insomnia disorder`
 - `autonomic dysregulation insomnia treatment outcome`
 - `PSQI HRV insomnia severity index correlation`
-
-### ✗ New Insight:
-- The existing queries are either too narrow or not surfacing relevant papers due to a lack of specific population targeting or too generic terms filtering through.
 
 ---
 
@@ -145,8 +147,8 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.022117| no_improvement| D1=0.448; D2=3.527; C=1.100; D3=0.000                |
 | this run | 0.017813| no_improvement| D3=0.179; D2=2.998; (C and A did not improve)        |
 | this run | 0.014162| no_improvement| D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
-| this run | 0.018821| no_improvement| A=0.000; B=1.020; C=0.119; D1=1.421; D2=2.504; D3=0.503 |
+| **this run** | **0.021289**| **no_improvement**| A_hrv_cognition=0.000; C_cognition_grades=0.053; D3_focus_insomnia=0.000 |
 
----
+--- 
 
 With these updates, the agent can proceed with a clearer understanding of strategies that work and areas that require further exploration.
