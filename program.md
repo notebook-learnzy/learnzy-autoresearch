@@ -210,6 +210,29 @@ link_C_cognition_grades: n=12 score=0.312   ← this is your weakest link
 
 ---
 
+## Known Hard Links — What Has NOT Worked (save time, avoid these patterns)
+
+**Link A (HRV → Cognition) scores 0 consistently.** The top-cited papers OpenAlex returns for broad "heart rate variability cognitive performance" queries are cardiac/clinical papers (arrhythmia, heart disease), not cognitive neuroscience. The LLM correctly rates these as irrelevant.
+
+**What TO try for Link A:**
+- Search specifically within neuroscience/psychology: `vagal tone executive function prefrontal cortex`
+- Target student/young adult populations: `heart rate variability working memory university students`
+- Use specific HRV metrics: `RMSSD attention performance healthy adults`
+- Meta-analysis/review focused: `HRV cognitive control systematic review`
+- Avoid generic "heart rate variability" alone — it pulls cardiac disease papers
+
+**Link C (Cognition → Grades) scores 0 consistently.** Broad queries return education policy papers, not psychometric studies.
+
+**What TO try for Link C:**
+- `working memory capacity GPA longitudinal study`
+- `executive function academic achievement meta-analysis`
+- `cognitive assessment exam performance university`
+- `attention span learning outcomes prospective`
+
+**Avoid double-quoted queries** like `"HRV AND sleep AND "PHQ-9""` — the nested quotes break OpenAlex and return HTTP 500 errors. Use plain boolean: `HRV sleep PHQ-9 students`
+
+---
+
 ## Autonomy Rule
 
 Once the loop is running, **NEVER stop to ask the human anything**. If a search returns no results, try a different query. If the API errors, log it and continue. If evidence_score plateaus for 20+ runs, try a radically different angle (different instruments, different populations, different biological mechanisms).
