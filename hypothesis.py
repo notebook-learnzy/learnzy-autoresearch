@@ -24,45 +24,45 @@ DO NOT modify sources.py, agent.py, or the GitHub Actions workflow.
 
 QUERIES = {
     "A_hrv_cognition": [
-        '"heart rate variability" AND "working memory" AND "students"',
-        '"vagal tone" AND "executive function" AND "university"',
-        '"RMSSD" AND "cognitive performance" AND "healthy"',
-        '"parasympathetic" AND "attention" AND "learning"',
+        '"heart rate variability" AND "executive function" AND "meta-analysis"',
+        '"vagal tone" AND "working memory" AND "systematic review"',
+        '"RMSSD" AND "cognitive performance" AND "adults"',
+        '"parasympathetic" AND "attention" AND "cross-sectional"',
     ],
 
     "B_sleep_cognition": [
-        '"sleep deprivation" AND "memory encoding" AND "hippocampus"',
-        '"sleep quality" AND "academic grades" AND "prospective"',
-        '"slow wave sleep" AND "declarative memory"',
-        '"sleep duration" AND "GPA" AND "university students"',
+        '"sleep deprivation" AND "cognitive performance" AND "systematic review"',
+        '"sleep quality" AND "memory consolidation" AND "meta-analysis"',
+        '"slow wave sleep" AND "cognitive function" AND "review"',
+        '"sleep duration" AND "learning outcome" AND "prospective cohort"',
     ],
 
     "C_cognition_grades": [
-        '"cognitive performance" AND "exam scores" AND "longitudinal"',
-        '"working memory" AND "academic achievement" AND "students"',
-        '"executive function" AND "academic performance" AND "adolescent"',
-        '"attention" AND "exam performance" AND "university"',
+        '"cognitive function" AND "academic performance" AND "longitudinal study"',
+        '"working memory" AND "GPA" AND "meta-analysis"',
+        '"executive function" AND "exam scores" AND "systematic review"',
+        '"attention" AND "academic success" AND "cohort study"',
     ],
 
     "D1_focus_depression": [
-        '"HRV" AND "PHQ-9" AND "students"',
-        '"sleep quality" AND "depression" AND "wearable" AND "students"',
-        '"heart rate variability" AND "major depressive disorder" AND "resting"',
-        '"RMSSD" AND "depression" AND "young adults"',
+        '"HRV" AND "depression risk" AND "meta-analysis"',
+        '"sleep disturbance" AND "PHQ-9" AND "prospective cohort"',
+        '"heart rate variability" AND "depressive symptoms" AND "review"',
+        '"RMSSD" AND "depression" AND "systematic review"',
     ],
 
     "D2_focus_anxiety": [
-        '"heart rate variability" AND "GAD-7" AND "anxiety"',
-        '"autonomic nervous system" AND "anxiety disorder" AND "HRV"',
-        '"sleep disturbance" AND "anxiety" AND "students" AND "wearable"',
-        '"HRV biofeedback" AND "anxiety" AND "randomized"',
+        '"HRV" AND "anxiety prediction" AND "meta-analysis"',
+        '"autonomic nervous system" AND "GAD-7" AND "systematic review"',
+        '"sleep quality" AND "anxiety disorder" AND "prospective study"',
+        '"HRV biofeedback" AND "anxiety" AND "RCT"',
     ],
 
     "D3_focus_insomnia": [
-        '"HRV" AND "insomnia severity index" AND "wearable"',
-        '"autonomic" AND "insomnia" AND "heart rate variability"',
-        '"sleep efficiency" AND "HRV" AND "mental health"',
-        '"nocturnal HRV" AND "insomnia" AND "students"',
+        '"HRV" AND "insomnia severity" AND "meta-analysis"',
+        '"autonomic function" AND "insomnia" AND "longitudinal study"',
+        '"sleep efficiency" AND "HRV" AND "prospective cohort"',
+        '"nocturnal HRV" AND "insomnia" AND "systematic review"',
     ],
 }
 
@@ -71,16 +71,14 @@ QUERIES = {
 # Agent can tighten or loosen these to improve signal quality.
 
 INCLUSION = {
-    "min_sample_size": 20,      # exclude very small studies (n < 20)
-    "min_year": 2010,           # focus on recent evidence
+    "min_sample_size": 50,      # exclude very small studies (n < 50)
+    "min_year": 2015,           # focus on more recent evidence
     "max_results_per_query": 50,
     "study_types": [            # which study designs to include
         "meta_analysis",
         "systematic_review",
         "rct",
         "prospective_cohort",
-        "cross_sectional",
-        "case_control",
     ],
 }
 
@@ -90,10 +88,10 @@ INCLUSION = {
 # Total across all links ideally stays under ~300 API calls to fit in TIME_BUDGET.
 
 SEARCH_DEPTH = {
-    "A_hrv_cognition":    50,
-    "B_sleep_cognition":  50,
-    "C_cognition_grades": 40,
+    "A_hrv_cognition":    40,
+    "B_sleep_cognition":  40,
+    "C_cognition_grades": 60,
     "D1_focus_depression": 40,
     "D2_focus_anxiety":   40,
-    "D3_focus_insomnia":  30,
+    "D3_focus_insomnia":  40,
 }
