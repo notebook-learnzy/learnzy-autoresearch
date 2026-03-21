@@ -1,4 +1,4 @@
-Here’s the complete updated agent memory file reflecting the latest run's changes:
+Here's the complete updated agent memory file reflecting the latest run's changes:
 
 ---
 
@@ -104,13 +104,16 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D3 — HRV/Sleep → Insomnia (current best score: 0.000)
+## Link D3 — HRV/Sleep → Insomnia (current best score: 0.179)
 
 ### ✗ What failed:
 - Most D3 queries return 2 or fewer papers after filtering.
 - Queries from this run did not improve the results.
 - `"HRV" AND "insomnia severity" AND "meta-analysis"`
 - `"nocturnal HRV" AND "insomnia" AND "systematic review"`
+
+### ✓ What worked:
+- Score increased from 0.000 to 0.179 this run.
 
 ### ✓ Directions to try next:
 - `sleep efficiency heart rate variability insomnia disorder`
@@ -140,6 +143,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0                   |
 | this run | 0.031327| improved      | A=0.838; B=1.130; C=1.837; D1=1.683; D2=1.916; D3=0.000 |
 | this run | 0.022117| no_improvement| D1=0.448; D2=3.527; C=1.100; D3=0.000                |
+| this run | 0.017813| no_improvement| D3=0.179; D2=2.998; (C and A did not improve)        |
 
 ---
 
