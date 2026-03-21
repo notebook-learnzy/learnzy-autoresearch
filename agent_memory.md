@@ -1,4 +1,4 @@
-Sure! Here’s the updated memory file reflecting the latest run's results:
+Here's the updated memory file reflecting the results from the latest run:
 
 ---
 
@@ -51,6 +51,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ### ✗ What has NOT worked:
 - `"REM sleep" AND "executive function" AND "students"` → too narrow, few papers
+
+### ✗ What failed:
+- `"sleep quality" AND "cognitive performance" AND "meta-analysis"` — did not improve results this run.
 
 ### ✓ Directions to try next:
 - `sleep duration academic performance GPA students`
@@ -150,7 +153,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.017813| no_improvement| D3=0.179; D2=2.998; (C and A did not improve)        |
 | this run | 0.014162| no_improvement| D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement| A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
-| **this run** | **0.030452**| **no_improvement**| A_hrv_cognition=0.000; B_sleep_cognition=1.486; C_cognition_grades=1.000; D1_focus_depression=0.562; D2_focus_anxiety=4.869; D3_focus_insomnia=0.905 |
+| this run | 0.012619| no_improvement| A_hrv_cognition=0.000; B_sleep_cognition=0.938; C_cognition_grades=0.327; D1_focus_depression=0.620; D2_focus_anxiety=1.412; D3_focus_insomnia=0.235 |
 
 --- 
 
