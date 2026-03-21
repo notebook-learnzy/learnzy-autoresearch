@@ -1,4 +1,4 @@
-Here's the updated agent memory file reflecting the results and adjustments from the latest run:
+Here's the updated agent memory file:
 
 ---
 
@@ -22,7 +22,8 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"HF-HRV" AND "executive function" AND "neuroscience"`
 - `"autonomic flexibility" AND "cognitive performance" AND "healthy young adults"`
 - `"vagal tone" AND "cognitive function" AND "student population"`
-  
+- Queries from this run that did not improve results.
+
 ### ✗ What failed:
 - Queries this run did not improve results.
 
@@ -58,9 +59,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ### ✗ What has NOT worked:
 - Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
+- Queries from this run did not improve results.
 
 ### ✗ What failed:
-- Queries this run did not improve results.
+- Queries this run did not improve the results.
 
 ### ✓ Directions to try next:
 - `working memory capacity academic achievement meta-analysis`
@@ -102,6 +104,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ### ✗ What has NOT worked:
 - Most D3 queries return 2 or fewer papers after filtering.
+- Queries from this run did not improve results.
 
 ### ✗ What failed:
 - Other queries didn't improve the results this run.
@@ -129,12 +132,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | Run      | Score   | Status        | What changed                                          |
 | -------- | ------- | ------------- | ----------------------------------------------------- |
 | baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0               |
-| this run | 0.017843| no_improvement | A=0.506; B=2.531; C=0.334; D1=0.964; D2=1.107; D3=0.294 |
-
-THIS RUN:
-- status: no_improvement
-- evidence_score: 0.017843 (best so far: 0.031325)
-- link scores: A_hrv_cognition=0.000 | B_sleep_cognition=0.551 | C_cognition_grades=0.735 | D1_focus_depression=0.394 | D2_focus_anxiety=3.369 | D3_focus_insomnia=0.000
+| this run | 0.009471| no_improvement | A=0.000; B=0.378; C=0.423; D1=0.338; D2=0.850; D3=0.979 |
 
 ---
 
