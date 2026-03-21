@@ -1,11 +1,10 @@
-Here's the updated agent memory file with the latest run history and relevant updates:
+Here's the updated agent memory file reflecting the results and adjustments from the latest run:
 
 ---
 
 # Agent Memory — Directional Knowledge Per Link
 
-This file is your persistent memory across runs. Read it BEFORE proposing any hypothesis.py change.
-It tells you what has been tried, what worked, and what to avoid re-trying.
+This file is your persistent memory across runs. Read it BEFORE proposing any hypothesis.py change. It tells you what has been tried, what worked, and what to avoid re-trying.
 
 The agent writes to this file after each run. Entries marked ✓ improved the score; entries marked ✗ did not.
 
@@ -23,9 +22,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"HF-HRV" AND "executive function" AND "neuroscience"`
 - `"autonomic flexibility" AND "cognitive performance" AND "healthy young adults"`
 - `"vagal tone" AND "cognitive function" AND "student population"`
-
-### ✓ What worked:
-- Search strategy was updated to include new queries, leading to a better score.
+  
+### ✗ What failed:
+- Queries this run did not improve results.
 
 ### ✓ Directions to try next:
 - Search for the specific well-known papers: `Forte 2019 heart rate variability cognitive performance meta-analysis`
@@ -61,7 +60,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - Broad `"academic performance"` queries → return education policy papers, not psychometric studies.
 
 ### ✗ What failed:
-- No specific failed queries in the previous execution resulted in dropped score.
+- Queries this run did not improve results.
 
 ### ✓ Directions to try next:
 - `working memory capacity academic achievement meta-analysis`
@@ -85,7 +84,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ## Link D2 — HRV/Sleep → Anxiety (current best score: 1.107 — STRONGEST LINK)
 
-### ✓ What has worked (PRESERVE THESE):
+### ✓ What worked (PRESERVE THESE):
 - `"HRV" AND "anxiety prediction" AND "meta-analysis"` → consistently finds high-relevance papers
 - `"autonomic nervous system" AND "GAD-7" AND "systematic review"` → strong results
 - `"sleep quality" AND "anxiety disorder" AND "prospective study"` → strong results
@@ -130,13 +129,13 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | Run      | Score   | Status        | What changed                                          |
 | -------- | ------- | ------------- | ----------------------------------------------------- |
 | baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0               |
-| this run | 0.014187| no_improvement | A=0.506; B=2.531; C=0.334; D1=0.964; D2=1.107; D3=0.294 |
+| this run | 0.017843| no_improvement | A=0.506; B=2.531; C=0.334; D1=0.964; D2=1.107; D3=0.294 |
 
 THIS RUN:
 - status: no_improvement
-- evidence_score: 0.011425 (best so far: 0.031325)
-- link scores: A_hrv_cognition=0.000 | B_sleep_cognition=1.076 | C_cognition_grades=0.074 | D1_focus_depression=0.260 | D2_focus_anxiety=1.063 | D3_focus_insomnia=0.979
+- evidence_score: 0.017843 (best so far: 0.031325)
+- link scores: A_hrv_cognition=0.000 | B_sleep_cognition=0.551 | C_cognition_grades=0.735 | D1_focus_depression=0.394 | D2_focus_anxiety=3.369 | D3_focus_insomnia=0.000
 
---- 
+---
 
-This is the complete updated memory file reflecting the results and adjustments from the latest run.
+With this complete updated memory file, the agent can refine its strategies and focus on improving the weakest links based on fresh insights.
