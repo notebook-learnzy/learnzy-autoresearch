@@ -28,6 +28,7 @@ QUERIES = {
         '"vagal tone" AND "working memory" AND "systematic review"',
         '"RMSSD" AND "cognitive performance" AND "adults"',
         '"parasympathetic" AND "attention" AND "cross-sectional"',
+        '"autonomic nervous system" AND "memory" AND "longitudinal study"',
     ],
 
     "B_sleep_cognition": [
@@ -35,6 +36,7 @@ QUERIES = {
         '"sleep quality" AND "memory consolidation" AND "meta-analysis"',
         '"slow wave sleep" AND "cognitive function" AND "review"',
         '"sleep duration" AND "learning outcome" AND "prospective cohort"',
+        '"REM sleep" AND "executive function" AND "students"',
     ],
 
     "C_cognition_grades": [
@@ -42,7 +44,8 @@ QUERIES = {
         '"working memory" AND "GPA" AND "meta-analysis"',
         '"executive function" AND "exam scores" AND "systematic review"',
         '"attention" AND "academic success" AND "cohort study"',
-        '"cognitive abilities" AND "school performance" AND "adolescent students"',
+        '"cognitive abilities" AND "school performance" AND "university students"',
+        '"neurocognitive performance" AND "academic achievement" AND "prospective study"',
     ],
 
     "D1_focus_depression": [
@@ -50,6 +53,7 @@ QUERIES = {
         '"sleep disturbance" AND "PHQ-9" AND "prospective cohort"',
         '"heart rate variability" AND "depressive symptoms" AND "review"',
         '"RMSSD" AND "depression" AND "systematic review"',
+        '"HRV AND sleep AND "PHQ-9" AND "college students"',
     ],
 
     "D2_focus_anxiety": [
@@ -57,6 +61,7 @@ QUERIES = {
         '"autonomic nervous system" AND "GAD-7" AND "systematic review"',
         '"sleep quality" AND "anxiety disorder" AND "prospective study"',
         '"HRV biofeedback" AND "anxiety" AND "RCT"',
+        '"HRV AND sleep AND "GAD-7" AND "young adults"',
     ],
 
     "D3_focus_insomnia": [
@@ -64,6 +69,7 @@ QUERIES = {
         '"autonomic function" AND "insomnia" AND "longitudinal study"',
         '"sleep efficiency" AND "HRV" AND "prospective cohort"',
         '"nocturnal HRV" AND "insomnia" AND "systematic review"',
+        '"HRV AND sleep AND "ISI" AND "university students"',
     ],
 }
 
@@ -72,15 +78,15 @@ QUERIES = {
 # Agent can tighten or loosen these to improve signal quality.
 
 INCLUSION = {
-    "min_sample_size": 30,      # include smaller studies to widen search
-    "min_year": 2010,           # include older studies for broader evidence
+    "min_sample_size": 50,      # tighten to improve quality of studies
+    "min_year": 2015,           # update to focus on more recent studies
     "max_results_per_query": 50,
     "study_types": [            # which study designs to include
         "meta_analysis",
         "systematic_review",
         "rct",
         "prospective_cohort",
-        "cross_sectional",      # add cross-sectional studies for wider coverage
+        "cross_sectional",
     ],
 }
 
@@ -90,10 +96,10 @@ INCLUSION = {
 # Total across all links ideally stays under ~300 API calls to fit in TIME_BUDGET.
 
 SEARCH_DEPTH = {
-    "A_hrv_cognition":    35,
-    "B_sleep_cognition":  35,
-    "C_cognition_grades": 80,
-    "D1_focus_depression": 35,
-    "D2_focus_anxiety":   35,
-    "D3_focus_insomnia":  35,
+    "A_hrv_cognition":    25,
+    "B_sleep_cognition":  25,
+    "C_cognition_grades": 100,  # allocate more depth to weakest link
+    "D1_focus_depression": 40,
+    "D2_focus_anxiety":   40,
+    "D3_focus_insomnia":  40,
 }
