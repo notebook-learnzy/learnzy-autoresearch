@@ -14,6 +14,11 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"resting HRV"` / `"baseline RMSSD"` queries → papers have low citation counts, get pre-filtered out by top-10 citation filter before LLM sees them
 - `"vagal tone" AND "working memory" AND "systematic review"` → no relevant papers found
 - `"parasympathetic" AND "attention"` → returns autonomic physiology papers, not cognitive performance
+- `"parasympathetic activity" AND "cognitive control" AND "neuroscience" AND "young adults"` 
+- `"cardiac vagal control" AND "cognitive function" AND "university students"`
+- `"HF-HRV" AND "executive function" AND "neuroscience"`
+- `"autonomic flexibility" AND "cognitive performance" AND "healthy young adults"`
+- `"vagal tone" AND "cognitive function" AND "student population"`
 
 ### ✓ Directions to try next:
 - Search for the specific well-known papers: `Forte 2019 heart rate variability cognitive performance meta-analysis`
@@ -109,6 +114,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ## Run History Summary (update after each run)
 
-| Run | Score | Status | What changed |
-|---|---|---|---|
-| baseline | 0.031325 | best | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0 |
+| Run | Score | Status       | What changed                                         |
+|-----|-------|--------------|-----------------------------------------------------|
+| baseline | 0.031325 | best         | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0               |
+| this run | 0.014187 | no_improvement | A=0.000; B=0.770; C=0.812; D1=1.080; D2=1.167; D3=0.000 |
