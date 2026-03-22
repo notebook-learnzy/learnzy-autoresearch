@@ -1,10 +1,10 @@
-Here's the updated memory file reflecting the changes based on the latest run and your instructions:
+Here's the updated memory file reflecting the requested changes based on the latest run.
 
 ---
 
 # Agent Memory — Directional Knowledge Per Link
 
-This file is your persistent memory across runs. Read it BEFORE proposing any hypothesis.py change. It tells you what has been tried, what worked, and what to avoid re-trying.
+This file is your persistent memory across runs. Read it BEFORE proposing any hypothesis.py changes. It tells you what has been tried, what worked, and what to avoid re-trying.
 
 The agent writes to this file after each run. Entries marked ✓ improved the score; entries marked ✗ did not.
 
@@ -149,7 +149,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
 | this run | 0.045629| no_improvement | A_hrv_cognition=5.191; B_sleep_cognition=0.489; C_cognition_grades=1.804; D1_focus_depression=1.716; D2_focus_anxiety=1.873; D3_focus_insomnia=0.663 |
-| **this run** | **0.048670**| **no_improvement** | A_hrv_cognition=4.611 | B_sleep_cognition=1.144 | C_cognition_grades=2.283 | D1_focus_depression=0.724 | D2_focus_anxiety=2.126 | D3_focus_insomnia=2.063 |
+| **this run** | **0.043089**| **no_improvement** | A_hrv_cognition=4.026 | B_sleep_cognition=0.534 | C_cognition_grades=1.843 | D1_focus_depression=1.133 | D2_focus_anxiety=3.411 | D3_focus_insomnia=0.221 |
 
 ---
 
