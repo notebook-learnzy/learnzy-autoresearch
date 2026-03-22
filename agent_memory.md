@@ -1,4 +1,4 @@
-Certainly! Here's the complete updated memory file with the requested changes made:
+Here's the complete updated memory file incorporating the requested changes:
 
 ---
 
@@ -69,8 +69,6 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
    - `"executive function academic performance university longitudinal"`
    - `"cognitive ability GPA university students cohort"`
    - `"learning outcomes executive function grade improvement"`
-
-### ✗ What failed:
 - Queries that did not yield improvements: 
    - `"cognitive test scores" AND "GPA" AND "higher education longitudinal"`
    - `"neuropsychological performance" AND "university grades longitudinal study"`
@@ -143,7 +141,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
 | this run | 0.045629| no_improvement | A_hrv_cognition=5.191; B_sleep_cognition=0.489; C_cognition_grades=1.804; D1_focus_depression=1.716; D2_focus_anxiety=1.873; D3_focus_insomnia=0.663 |
-| **this run** | **0.048767**| **no_improvement** | A_hrv_cognition=3.949; B_sleep_cognition=0.728; C_cognition_grades=2.366; D1_focus_depression=1.277; D2_focus_anxiety=2.172; D3_focus_insomnia=3.198 |
+| **this run** | **0.028388**| **no_improvement** | A_hrv_cognition=2.997; B_sleep_cognition=0.713; C_cognition_grades=0.279; D1_focus_depression=1.084; D2_focus_anxiety=2.092; D3_focus_insomnia=0.332 |
 
 ---
 
