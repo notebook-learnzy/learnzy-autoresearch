@@ -1,4 +1,4 @@
-Here’s the updated memory file reflecting the latest run's results:
+Here's the updated memory file reflecting the latest run's results:
 
 ---
 
@@ -30,6 +30,11 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"autonomic flexibility" AND "cognitive performance" AND "healthy young adults"`
 - `"vagal tone" AND "cognitive function" AND "student population"`
 - `"Forte 2019 heart rate variability cognitive performance meta-analysis"`
+- `"autonomic modulation" AND "executive function" AND "response inhibition"`
+- `"heart rate variability" AND "cognitive flexibility" AND "neuroscience students"`
+- `"RMSSD" AND "working memory" AND "attention task performance"`
+- `"parasympathetic regulation" AND "cognitive control" AND "young adults"`
+- `"vagal control" AND "memory task performance" AND "cross-sectional study"`
 
 ### ✓ What worked:
 - Improvements observed in this run: Score remained at 0.838.
@@ -46,7 +51,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ## Link B — Sleep → Cognition (current best score: 2.643)
 
 ### ✓ What worked:
-- Improvements observed in this run: Score increased from 1.115 to 2.643.
+- Improvements observed in this run: Score decreased from 1.115 to 2.643.
 - `"sleep deprivation" AND "cognitive performance" AND "systematic review"` → found relevant papers
 - `"sleep quality" AND "memory consolidation" AND "meta-analysis"` → good results
 
@@ -76,7 +81,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
    - `"attention" AND "executive function" AND "grades" AND "high school" AND "university"`
 
 ### ✓ What worked:
-- Improvements observed in this run: Score increased from 0.107 to 1.300.
+- Improvements observed in this run: Score decreased from 1.300 to 0.340.
 
 ### ✓ Directions to try next:
 - Adjust specificity in queries to better target psychometric connections to grades.
@@ -94,7 +99,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - No improvement from queries this run.
 
 ### ✓ What worked this run:
-- Improvements observed in this run: Score decreased from 0.521 to 0.486.
+- Improvements observed in this run: Score increased from 0.663 to 0.663.
 
 ### ✓ Directions to try next:
 - Continue leveraging successful queries or seek additional query variations.
@@ -127,7 +132,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - Existing queries are either too narrow or not surfacing relevant papers due to a lack of specific population targeting or too generic terms filtering through.
 
 ### ✓ What worked:
-- Improvements observed in this run: Score increased from 0.545 to 0.196.
+- Improvements observed in this run: Score increased from 0.045 to 0.865.
 
 ### ✓ Directions to try next:
 - `sleep efficiency heart rate variability insomnia disorder`
@@ -157,7 +162,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.017813| no_improvement| D3=0.179; D2=2.998; (C and A did not improve)        |
 | this run | 0.014162| no_improvement| D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement| A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
-| this run | 0.026109| no_improvement| A_hrv_cognition=0.000 | B_sleep_cognition=2.643; C_cognition_grades=1.300; D1_focus_depression=0.486; D2_focus_anxiety=2.143; D3_focus_insomnia=0.196 |
+| this run | 0.018781| no_improvement| A_hrv_cognition=0.443; B_sleep_cognition=1.270; C_cognition_grades=0.340; D1_focus_depression=0.663; D2_focus_anxiety=1.789; D3_focus_insomnia=0.865 |
 
 ---
 
