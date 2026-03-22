@@ -1,4 +1,4 @@
-Here's the updated memory file reflecting the latest run with the specified changes:
+Here's the updated memory file reflecting the latest run and corresponding adjustments:
 
 ---
 
@@ -26,11 +26,11 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ### ✗ What failed:
 - Queries this run did not yield improvements:
-  - `vagal tone cognitive control neuroimaging student populations`
-  - `HF-HRV prefrontal cortex cognitive neuroscience`
-  - `RMSSD attention performance college students`
-  - `autonomic flexibility executive function neuropsychology`
-  - `cardiac vagal tone neural mechanisms cognitive tasks students`
+  - `vagal tone executive function young adults neuroscience`
+  - `HF-HRV cognitive flexibility neuropsychology students`
+  - `cardiac vagal control cognitive performance youth psychology`
+  - `RMSSD cognitive function university populations`
+  - `autonomic nervous system attention students fMRI study`
 
 ### ✓ What worked:
 - Score improved from 1.181 to 6.277 this run!
@@ -78,6 +78,11 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
   - `"cognitive test scores" AND "GPA" AND "higher education longitudinal"`
   - `"neuropsychological performance" AND "university grades longitudinal study"`
   - `"executive function" AND "academic success"`
+  - `"working memory capacity" AND "academic success" AND "neuropsychological testing"`
+  - `"cognitive test scores" AND "GPA" AND "longitudinal university cohort"`
+  - `"executive function" AND "exam scores" AND "prospective college students"`
+  - `"fluid intelligence" AND "academic performance" AND "university students"`
+  - `"attention span" AND "GPA" AND "longitudinal educational outcomes"`
 
 ### ✓ What worked:
 - Score improved from 2.130 to 2.841 this run.
@@ -149,8 +154,8 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
 | this run | 0.045629| no_improvement | A_hrv_cognition=5.191; B_sleep_cognition=0.489; C_cognition_grades=1.804; D1_focus_depression=1.716; D2_focus_anxiety=1.873; D3_focus_insomnia=0.663 |
-| this run | 0.038327| no_improvement | A_hrv_cognition=4.110; B_sleep_cognition=0.536; C_cognition_grades=1.134; D1_focus_depression=1.220; D2_focus_anxiety=2.472; D3_focus_insomnia=0.553 |
+| this run | 0.038554| no_improvement | A_hrv_cognition=3.756; B_sleep_cognition=0.586; C_cognition_grades=2.164; D1_focus_depression=0.984; D2_focus_anxiety=1.920; D3_focus_insomnia=0.387 |
 
----
+--- 
 
-With these updates, the agent now has a concise document reflecting the most recent run and the corresponding adjustments to tracking strategies for each link.
+This file is now complete and incorporates the recent run findings and necessary updates.
