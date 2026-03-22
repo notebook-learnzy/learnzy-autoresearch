@@ -1,4 +1,4 @@
-Sure! Here’s the updated memory file after incorporating the new run’s results and insights.
+Sure! Here’s the complete updated memory file after incorporating the latest run's results, insights, and modifications.
 
 ---
 
@@ -79,6 +79,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✓ Directions to try next:
 - Adjust specificity in queries to better target psychometric connections to grades.
 
+### ⚠️ New Insight:
+- Finding studies directly connecting cognitive performance to academic grades may be challenging due to the prevalence of non-psychometric papers in education research.
+
 ---
 
 ## Link D1 — HRV/Sleep → Depression (current best score: 2.583)
@@ -139,7 +142,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.017813| no_improvement | D3=0.179; D2=2.998; (C and A did not improve)        |
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
-| **this run** | **0.038382**| **no_improvement** | A_hrv_cognition=2.163; B_sleep_cognition=0.844; C_cognition_grades=2.841; D1_focus_depression=1.200; D2_focus_anxiety=2.566; D3_focus_insomnia=0.332 |
+| **this run** | **0.045629**| **no_improvement** | A_hrv_cognition=5.191; B_sleep_cognition=0.489; C_cognition_grades=1.804; D1_focus_depression=1.716; D2_focus_anxiety=1.873; D3_focus_insomnia=0.663 |
 
 ---
 
