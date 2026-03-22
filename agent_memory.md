@@ -1,4 +1,4 @@
-Here's the updated memory file reflecting the latest changes based on your instructions:
+Here's the updated memory file reflecting the changes based on the latest run and your instructions:
 
 ---
 
@@ -149,7 +149,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
 | this run | 0.045629| no_improvement | A_hrv_cognition=5.191; B_sleep_cognition=0.489; C_cognition_grades=1.804; D1_focus_depression=1.716; D2_focus_anxiety=1.873; D3_focus_insomnia=0.663 |
-| **this run** | **0.037201**| **no_improvement** | A_hrv_cognition=3.038 | B_sleep_cognition=0.588 | C_cognition_grades=2.130 | D1_focus_depression=1.237 | D2_focus_anxiety=2.407 | D3_focus_insomnia=0.155 |
+| **this run** | **0.048670**| **no_improvement** | A_hrv_cognition=4.611 | B_sleep_cognition=1.144 | C_cognition_grades=2.283 | D1_focus_depression=0.724 | D2_focus_anxiety=2.126 | D3_focus_insomnia=2.063 |
 
 ---
 
