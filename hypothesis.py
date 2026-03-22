@@ -13,13 +13,12 @@ DO NOT modify sources.py, agent.py, or the GitHub Actions workflow.
 # ─── SEARCH QUERIES ───────────────────────────────────────────────────────────
 QUERIES = {
     "A_hrv_cognition": [
-        # Plain-text queries targeting COGNITIVE HRV (not cardiac disease)
-        "heart rate variability cognitive performance meta-analysis healthy adults",
-        "vagal tone prefrontal cortex cognitive control neuroscience",
-        "cardiac vagal control working memory attention executive function",
-        "RMSSD HF-HRV cognitive flexibility attention university students",
-        "parasympathetic nervous system cognitive function systematic review",
-        "heart rate variability memory attention executive function review",
+        # New queries focusing on psychological constructs and specific populations
+        "heart rate variability cognitive neuroscience young adults",
+        "vagal tone executive function university students",
+        "HF-HRV cognitive control neuroscience",
+        "cardiac vagal control cognitive flexibility prefrontal",
+        "autonomic nervous system cognition attention youth"
     ],
 
     "B_sleep_cognition": [
@@ -31,12 +30,12 @@ QUERIES = {
     ],
 
     "C_cognition_grades": [
-        '"neuropsychological scores" AND "GPA" AND "prospective study"',
-        '"cognitive function" AND "standardized test scores" AND "longitudinal"',
-        '"executive cognitive functions" AND "academic success" AND "prospective cohort"',
-        '"working memory" AND "exam performance" AND "university students"',
-        '"attention" AND "academic achievement" AND "cohort study"',
-        '"fluid intelligence" AND "academic results" AND "education outcomes"',
+        # Refined queries to focus on cognitive abilities tied to academic output
+        '"fluid intelligence university students longitudinal study"',
+        '"executive attention academic results prospective study"',
+        '"cognitive ability exam scores longitudinal"',
+        '"working memory academic performance students"',
+        '"attention executive function grades high school university"',
     ],
 
     "D1_focus_depression": [
