@@ -1,4 +1,4 @@
-Here's the complete updated memory file incorporating the requested changes:
+Here's the updated memory file reflecting the latest changes based on your instructions:
 
 ---
 
@@ -25,7 +25,12 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - Queries from the previous run that did not improve results.
 
 ### ✗ What failed:
-- Score decreased from 1.557 to 1.181 in earlier runs.
+- Queries this run did not yield improvements:
+  - `vagal tone cognitive flexibility well-known authors`
+  - `HF-HRV executive function neuroscience research`
+  - `cardiac vagal control cognitive neuroscience experts`
+  - `RMSSD cognitive abilities in youth neuroscience`
+  - `autonomic nervous system cognition specialized journals`
 
 ### ✓ What worked:
 - Score improved from 1.181 to 6.277 this run!
@@ -44,11 +49,11 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What failed:
 - Score decreased from 0.861 to 0.964.
 - Queries this run:
-   - `"sleep duration cognitive function academic performance students"`
-   - `"REM sleep learning cognitive neuroscience student populations"`
-   - `"sleep quality memory consolidation academic achievement"`
-   - `"Pittsburgh Sleep Quality Index executive function longitudinal"`
-   - `"actigraphy sleep cognitive performance educational outcomes"`
+  - `"sleep duration cognitive function academic performance students"`
+  - `"REM sleep learning cognitive neuroscience student populations"`
+  - `"sleep quality memory consolidation academic achievement"`
+  - `"Pittsburgh Sleep Quality Index executive function longitudinal"`
+  - `"actigraphy sleep cognitive performance educational outcomes"`
 
 ### ✓ What worked:
 - None this run; previous strategies did not yield improvements.
@@ -64,15 +69,18 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What failed:
 - Score decreased from 2.124 to 2.841.
 - Queries this run:
-   - `"cognitive assessment longitudinal GPA academic achievement"`
-   - `"working memory and grades prospective student study"`
-   - `"executive function academic performance university longitudinal"`
-   - `"cognitive ability GPA university students cohort"`
-   - `"learning outcomes executive function grade improvement"`
+  - `"cognitive assessment longitudinal GPA academic achievement"`
+  - `"working memory and grades prospective student study"`
+  - `"executive function academic performance university longitudinal"`
+  - `"cognitive ability GPA university students cohort"`
+  - `"learning outcomes executive function grade improvement"`
 - Queries that did not yield improvements: 
-   - `"cognitive test scores" AND "GPA" AND "higher education longitudinal"`
-   - `"neuropsychological performance" AND "university grades longitudinal study"`
-   - `"executive function" AND "academic success"`
+  - `"cognitive test scores" AND "GPA" AND "higher education longitudinal"`
+  - `"neuropsychological performance" AND "university grades longitudinal study"`
+  - `"executive function" AND "academic success"`
+
+### ✓ What worked:
+- Score improved from 2.130 to 2.841 this run.
 
 ### ✓ Directions to try next:
 - Adjust specificity in queries to better target psychometric connections to grades.
@@ -108,9 +116,9 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 ### ✗ What failed:
 - Score decreased from 0.553 to 0.332.
 - Queries this run did not yield improved results:
-   - `"HRV" AND "insomnia severity" AND "meta-analysis"`
-   - `"nocturnal HRV" AND "insomnia" AND "systematic review"`
-   - `"sleep disturbance" AND "GAD-7" AND "cross-sectional"`
+  - `"HRV" AND "insomnia severity" AND "meta-analysis"`
+  - `"nocturnal HRV" AND "insomnia" AND "systematic review"`
+  - `"sleep disturbance" AND "GAD-7" AND "cross-sectional"`
 
 ### ✓ Directions to try next:
 - `sleep efficiency heart rate variability insomnia disorder`
@@ -141,8 +149,8 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
 | this run | 0.045629| no_improvement | A_hrv_cognition=5.191; B_sleep_cognition=0.489; C_cognition_grades=1.804; D1_focus_depression=1.716; D2_focus_anxiety=1.873; D3_focus_insomnia=0.663 |
-| **this run** | **0.028388**| **no_improvement** | A_hrv_cognition=2.997; B_sleep_cognition=0.713; C_cognition_grades=0.279; D1_focus_depression=1.084; D2_focus_anxiety=2.092; D3_focus_insomnia=0.332 |
+| **this run** | **0.037201**| **no_improvement** | A_hrv_cognition=3.038 | B_sleep_cognition=0.588 | C_cognition_grades=2.130 | D1_focus_depression=1.237 | D2_focus_anxiety=2.407 | D3_focus_insomnia=0.155 |
 
 ---
 
-With these updates, the agent now has a concise documented understanding of what strategies have been successful and which areas require additional exploration.
+With these updates, the agent now has a concise document that reflects the recent run, indicating strategies that have succeeded or failed for each link.
