@@ -11,24 +11,15 @@ DO NOT modify sources.py, agent.py, or the GitHub Actions workflow.
 """
 
 # ─── SEARCH QUERIES ───────────────────────────────────────────────────────────
-# One list per hypothesis link. The agent modifies these to discover better papers.
-# Fixed validation queries in sources.py ALWAYS run in addition to these.
-#
-# Hypothesis links:
-#   A_hrv_cognition    : HRV → executive function / memory / attention
-#   B_sleep_cognition  : Sleep → memory consolidation / learning / retention
-#   C_cognition_grades : Cognition → academic grades / exam performance
-#   D1_focus_depression: HRV + sleep → depression (PHQ-9)
-#   D2_focus_anxiety   : HRV + sleep → anxiety (GAD-7)
-#   D3_focus_insomnia  : HRV + sleep → insomnia (ISI)
-
 QUERIES = {
     "A_hrv_cognition": [
-        '"heart rate variability" AND "executive function" AND "meta-analysis"',
-        '"vagal tone" AND "working memory" AND "systematic review"',
-        '"RMSSD" AND "cognitive performance" AND "adults"',
-        '"parasympathetic" AND "attention" AND "cross-sectional"',
-        '"autonomic nervous system" AND "memory" AND "longitudinal study"',
+        # Plain-text queries targeting COGNITIVE HRV (not cardiac disease)
+        "heart rate variability cognitive performance meta-analysis healthy adults",
+        "vagal tone prefrontal cortex cognitive control neuroscience",
+        "cardiac vagal control working memory attention executive function",
+        "RMSSD HF-HRV cognitive flexibility attention university students",
+        "parasympathetic nervous system cognitive function systematic review",
+        "heart rate variability memory attention executive function review",
     ],
 
     "B_sleep_cognition": [
@@ -65,23 +56,20 @@ QUERIES = {
     ],
 
     "D3_focus_insomnia": [
-        '"HRV" AND "insomnia severity" AND "meta-analysis"',
-        '"autonomic function" AND "insomnia" AND "longitudinal study"',
-        '"sleep efficiency" AND "HRV" AND "prospective cohort"',
-        '"nocturnal HRV" AND "insomnia" AND "systematic review"',
-        'HRV sleep insomnia severity index university students',
+        "heart rate variability insomnia disorder autonomic",
+        "HRV nocturnal sleep quality insomnia severity systematic review",
+        "autonomic dysregulation insomnia treatment outcome RCT",
+        "PSQI HRV insomnia severity index correlation meta-analysis",
+        "sleep efficiency heart rate variability insomnia longitudinal",
     ],
 }
 
 # ─── INCLUSION CRITERIA ────────────────────────────────────────────────────────
-# Filters applied AFTER LLM extraction of paper metadata.
-# Agent can tighten or loosen these to improve signal quality.
-
 INCLUSION = {
-    "min_sample_size": 50,      # strict = higher quality papers, matches best run
-    "min_year": 2015,           # recent literature only, matches best run
+    "min_sample_size": 20,      # loosened to catch more HRV-cognition papers
+    "min_year": 2010,           # widened to capture classic HRV-cognition reviews
     "max_results_per_query": 50,
-    "study_types": [            # which study designs to include
+    "study_types": [
         "meta_analysis",
         "systematic_review",
         "rct",
@@ -91,15 +79,11 @@ INCLUSION = {
 }
 
 # ─── SEARCH DEPTH PER LINK ────────────────────────────────────────────────────
-# Controls how many results to fetch per query for each link.
-# Agent should allocate more depth to weaker links.
-# Total across all links ideally stays under ~300 API calls to fit in TIME_BUDGET.
-
 SEARCH_DEPTH = {
-    "A_hrv_cognition":    20,
-    "B_sleep_cognition":  20,
-    "C_cognition_grades": 150,  # increase depth to focus on finding more substantial evidence
+    "A_hrv_cognition":     60,  # boosted — was stuck at 0, needs more attempts
+    "B_sleep_cognition":   20,
+    "C_cognition_grades":  80,
     "D1_focus_depression": 30,
-    "D2_focus_anxiety":   40,
-    "D3_focus_insomnia":  40,
+    "D2_focus_anxiety":    40,
+    "D3_focus_insomnia":   50,  # boosted — was weak
 }
