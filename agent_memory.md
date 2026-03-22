@@ -1,4 +1,4 @@
-Here's the updated memory file reflecting the latest run's results:
+Here’s the updated memory file reflecting the latest run's results:
 
 ---
 
@@ -32,7 +32,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"Forte 2019 heart rate variability cognitive performance meta-analysis"`
 
 ### ✓ What worked:
-- Improvements observed in this run: Score increased from 0.587 to 0.838.
+- Improvements observed in this run: Score remained at 0.838.
 
 ### ✓ Directions to try next:
 - Search for the specific well-known papers: `Forte 2019 heart rate variability cognitive performance meta-analysis`
@@ -61,7 +61,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link C — Cognition → Grades (current best score: 0.053)
+## Link C — Cognition → Grades (current best score: 0.107)
 
 ### ✗ What failed:
 - Existing queries returned education policy papers rather than psychometric studies.
@@ -71,7 +71,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - Queries that did not yield relevant evidence this run.
 
 ### ✓ What worked:
-- Improvements observed in this run: Score remained at 0.000.
+- Improvements observed in this run: Score increased from 0.053 to 0.107.
 
 ### ✓ Directions to try next:
 - `working memory capacity academic achievement meta-analysis`
@@ -81,7 +81,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D1 — HRV/Sleep → Depression (current best score: 0.191)
+## Link D1 — HRV/Sleep → Depression (current best score: 0.521)
 
 ### ✓ What has worked:
 - `"HRV" AND "depression risk" AND "meta-analysis"` → found relevant papers
@@ -89,17 +89,17 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - `"RMSSD" AND "depression" AND "systematic review"` → worked well
 
 ### ✗ What failed:
-- No improvement from queries in this run.
+- No improvement from queries this run.
 
 ### ✓ What worked this run:
-- Improvements observed in this run: Score increased from 0.191 to 0.191.
+- Improvements observed in this run: Score increased from 0.191 to 0.521.
 
 ### ✓ Directions to try next:
 - Continue leveraging successful queries or seek additional query variations.
 
 ---
 
-## Link D2 — HRV/Sleep → Anxiety (current best score: 1.286)
+## Link D2 — HRV/Sleep → Anxiety (current best score: 3.356)
 
 ### ✓ What worked (PRESERVE THESE):
 - `"HRV" AND "anxiety prediction" AND "meta-analysis"` → consistently finds high-relevance papers
@@ -112,7 +112,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D3 — HRV/Sleep → Insomnia (current best score: 0.000)
+## Link D3 — HRV/Sleep → Insomnia (current best score: 0.545)
 
 ### ✗ What failed:
 - Most D3 queries return 2 or fewer papers after filtering.
@@ -124,7 +124,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - Existing queries are either too narrow or not surfacing relevant papers due to a lack of specific population targeting or too generic terms filtering through.
 
 ### ✓ What worked:
-- Improvements observed in this run: Score remained at 0.000.
+- Improvements observed in this run: Score increased from 0.000 to 0.545.
 
 ### ✓ Directions to try next:
 - `sleep efficiency heart rate variability insomnia disorder`
@@ -154,8 +154,8 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.017813| no_improvement| D3=0.179; D2=2.998; (C and A did not improve)        |
 | this run | 0.014162| no_improvement| D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement| A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
-| this run | 0.012198| no_improvement| A_hrv_cognition=0.587; B_sleep_cognition=1.115; C_cognition_grades=0.000; D1_focus_depression=0.191; D2_focus_anxiety=1.286; D3_focus_insomnia=0.000 |
+| this run | 0.018309| no_improvement| A_hrv_cognition=0.000; B_sleep_cognition=0.928; C_cognition_grades=0.107; D1_focus_depression=0.521; D2_focus_anxiety=3.356; D3_focus_insomnia=0.545 |
 
---- 
+---
 
 With these updates, the agent can proceed with a clearer understanding of strategies that work and areas that require further exploration.
