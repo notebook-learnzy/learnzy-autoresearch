@@ -138,12 +138,12 @@ def search_openalex(query: str, max_results: int = 50, min_year: int = 2009) -> 
     (Nature, PubMed/MEDLINE, Elsevier, Wiley, Springer, etc.).
     Rate limit: 10 req/s, 100K calls/day — we sleep 0.1s between calls.
 
-    Results sorted by citation count descending (most-cited = highest quality first).
+    Results sorted by OpenAlex relevance (BM25 on query text) — ensures query-specific
+    papers surface first rather than generically high-cited papers in the domain.
     """
     params = {
         "search": query,
         "per-page": min(max_results, 200),
-        "sort": "cited_by_count:desc",
         "filter": f"publication_year:>{min_year},type:article",
         "select": "id,title,abstract_inverted_index,publication_year,doi,"
                   "primary_location,cited_by_count,ids",
@@ -398,7 +398,9 @@ def run_searches(
 
     # 3. Pre-filter: drop no-abstract papers, then keep top 10 by citation count.
     # Papers without abstracts return empty relevance from LLM → score=0, wasted API call.
-    # cited_by_count is a free quality proxy (already fetched from OpenAlex).
+    # Keep OpenAlex relevance order (BM25) — do NOT re-sort by citation count here,
+    # which would override query relevance ranking with domain-wide popularity
+    # (e.g., cardiac HRV papers outranking cognitive HRV papers).
     # 10 papers = 1 LLM batch per link → eliminates token truncation risk entirely.
     _PRE_FILTER_N = 25
     for link in LINK_WEIGHTS:
@@ -406,9 +408,7 @@ def run_searches(
         no_abstract_count = len(papers_by_link[link]) - len(has_abstract)
         if no_abstract_count:
             print(f"[sources]   Dropped {no_abstract_count} no-abstract papers for {link}", flush=True)
-        papers_by_link[link] = sorted(
-            has_abstract, key=lambda p: p.cited_by_count, reverse=True
-        )[:_PRE_FILTER_N]
+        papers_by_link[link] = has_abstract[:_PRE_FILTER_N]
 
     raw_counts = {link: len(papers_by_link[link]) for link in LINK_WEIGHTS}
     print(f"[sources] Paper counts after pre-filter (top {_PRE_FILTER_N} by citations): {raw_counts}", flush=True)
