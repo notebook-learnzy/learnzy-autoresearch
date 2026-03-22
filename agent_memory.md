@@ -1,4 +1,4 @@
-Here's the updated memory file reflecting the latest run:
+Here's the complete updated memory file reflecting the latest updates from the current run:
 
 ---
 
@@ -10,7 +10,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link A — HRV → Cognition (current best score: 1.181)
+## Link A — HRV → Cognition (current best score: 6.277)
 
 ### ✗ What has NOT worked (do not retry):
 - Generic `"heart rate variability" AND "cognitive performance"` → returns cardiac disease/arrhythmia papers; LLM gives relevance=0 (wrong population)
@@ -25,10 +25,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - Queries from the previous run that did not improve results.
 
 ### ✗ What failed:
-- Score decreased from 1.557 to 1.181.
+- Score decreased from 1.557 to 1.181 in earlier runs.
 
 ### ✓ What worked:
-- None this run; previous strategies did not yield improvements.
+- Score improved from 1.181 to 6.277 this run!
 
 ### ✓ Directions to try next:
 - Search for the specific well-known papers: `Forte 2019 heart rate variability cognitive performance meta-analysis`
@@ -39,10 +39,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link B — Sleep → Cognition (current best score: 0.477)
+## Link B — Sleep → Cognition (current best score: 0.861)
 
 ### ✗ What failed:
-- Score decreased from 0.433 to 0.477.
+- Score decreased from 0.477 to 0.861.
 - Queries this run:
    - `"sleep duration cognitive function academic performance students"`
    - `"REM sleep learning cognitive neuroscience student populations"`
@@ -50,16 +50,19 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
    - `"Pittsburgh Sleep Quality Index executive function longitudinal"`
    - `"actigraphy sleep cognitive performance educational outcomes"`
 
+### ✓ What worked:
+- None this run; previous strategies did not yield improvements.
+
 ### ✓ Directions to try next:
 - `sleep duration academic performance GPA students`
 - `Okano 2019 sleep academic achievement MIT` (known high-quality paper)
 
 ---
 
-## Link C — Cognition → Grades (current best score: 0.728)
+## Link C — Cognition → Grades (current best score: 1.905)
 
 ### ✗ What failed:
-- Score decreased from 0.374 to 0.728.
+- Score decreased from 0.728 to 1.905.
 - Queries this run:
    - `"cognitive assessment longitudinal GPA academic achievement"`
    - `"working memory and grades prospective student study"`
@@ -75,10 +78,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D1 — HRV/Sleep → Depression (current best score: 1.436)
+## Link D1 — HRV/Sleep → Depression (current best score: 1.331)
 
 ### ✗ What failed:
-- Score decreased from 1.608 to 1.436.
+- Score decreased from 1.436 to 1.331.
 - Queries this run did not yield improved results.
 
 ### ✓ Directions to try next:
@@ -86,20 +89,20 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D2 — HRV/Sleep → Anxiety (current best score: 2.067)
+## Link D2 — HRV/Sleep → Anxiety (current best score: 2.176)
 
 ### ✓ What worked:
-- Improvement observed this run: Score increased from 2.198 to 2.067.
+- Improvement observed this run: Score increased from 2.067 to 2.176.
 - Queries resulting in high-relevance papers were preserved.
 
 ### ⚠️ WARNING: D2 is the highest-scoring link. DO NOT change its queries unless you have a specific reason to believe a change will improve it.
 
 ---
 
-## Link D3 — HRV/Sleep → Insomnia (current best score: 1.411)
+## Link D3 — HRV/Sleep → Insomnia (current best score: 0.663)
 
 ### ✗ What failed:
-- Score decreased from 1.360 to 1.411.
+- Score decreased from 1.411 to 0.663.
 - Queries this run did not yield improved results:
    - `"HRV" AND "insomnia severity" AND "meta-analysis"`
    - `"nocturnal HRV" AND "insomnia" AND "systematic review"`
@@ -133,7 +136,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.017813| no_improvement | D3=0.179; D2=2.998; (C and A did not improve)        |
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
-| this run | 0.024837| no_improvement | A_hrv_cognition=1.181; B_sleep_cognition=0.477; C_cognition_grades=0.728; D1_focus_depression=1.436; D2_focus_anxiety=2.067; D3_focus_insomnia=1.411 |
+| **this run** | **0.052134**| **improved** | A_hrv_cognition=6.277; B_sleep_cognition=0.861; C_cognition_grades=1.905; D1_focus_depression=1.331; D2_focus_anxiety=2.176; D3_focus_insomnia=0.663 |
 
 ---
 
