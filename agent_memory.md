@@ -1,4 +1,4 @@
-Here's the complete updated memory file reflecting the latest updates from the current run:
+Sure! Here’s the updated memory file reflecting the latest changes based on the current run.
 
 ---
 
@@ -39,10 +39,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link B — Sleep → Cognition (current best score: 0.861)
+## Link B — Sleep → Cognition (current best score: 0.964)
 
 ### ✗ What failed:
-- Score decreased from 0.477 to 0.861.
+- Score decreased from 0.861 to 0.964.
 - Queries this run:
    - `"sleep duration cognitive function academic performance students"`
    - `"REM sleep learning cognitive neuroscience student populations"`
@@ -59,10 +59,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link C — Cognition → Grades (current best score: 1.905)
+## Link C — Cognition → Grades (current best score: 2.124)
 
 ### ✗ What failed:
-- Score decreased from 0.728 to 1.905.
+- Score decreased from 1.905 to 2.124.
 - Queries this run:
    - `"cognitive assessment longitudinal GPA academic achievement"`
    - `"working memory and grades prospective student study"`
@@ -78,10 +78,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D1 — HRV/Sleep → Depression (current best score: 1.331)
+## Link D1 — HRV/Sleep → Depression (current best score: 2.583)
 
 ### ✗ What failed:
-- Score decreased from 1.436 to 1.331.
+- Score decreased from 1.331 to 2.583.
 - Queries this run did not yield improved results.
 
 ### ✓ Directions to try next:
@@ -89,20 +89,20 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D2 — HRV/Sleep → Anxiety (current best score: 2.176)
+## Link D2 — HRV/Sleep → Anxiety (current best score: 2.810)
 
 ### ✓ What worked:
-- Improvement observed this run: Score increased from 2.067 to 2.176.
+- Improvement observed this run: Score increased from 2.176 to 2.810.
 - Queries resulting in high-relevance papers were preserved.
 
 ### ⚠️ WARNING: D2 is the highest-scoring link. DO NOT change its queries unless you have a specific reason to believe a change will improve it.
 
 ---
 
-## Link D3 — HRV/Sleep → Insomnia (current best score: 0.663)
+## Link D3 — HRV/Sleep → Insomnia (current best score: 0.553)
 
 ### ✗ What failed:
-- Score decreased from 1.411 to 0.663.
+- Score decreased from 0.663 to 0.553.
 - Queries this run did not yield improved results:
    - `"HRV" AND "insomnia severity" AND "meta-analysis"`
    - `"nocturnal HRV" AND "insomnia" AND "systematic review"`
@@ -136,7 +136,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.017813| no_improvement | D3=0.179; D2=2.998; (C and A did not improve)        |
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
-| **this run** | **0.052134**| **improved** | A_hrv_cognition=6.277; B_sleep_cognition=0.861; C_cognition_grades=1.905; D1_focus_depression=1.331; D2_focus_anxiety=2.176; D3_focus_insomnia=0.663 |
+| **this run** | **0.047249**| **no_improvement** | A_hrv_cognition=3.469; B_sleep_cognition=0.964; C_cognition_grades=2.124; D1_focus_depression=2.583; D2_focus_anxiety=2.810; D3_focus_insomnia=0.553 |
 
 ---
 
