@@ -1,4 +1,4 @@
-Here's the updated memory file with the specified modifications:
+Here's the updated memory file reflecting the latest run:
 
 ---
 
@@ -10,7 +10,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link A — HRV → Cognition (current best score: 1.557)
+## Link A — HRV → Cognition (current best score: 1.181)
 
 ### ✗ What has NOT worked (do not retry):
 - Generic `"heart rate variability" AND "cognitive performance"` → returns cardiac disease/arrhythmia papers; LLM gives relevance=0 (wrong population)
@@ -25,10 +25,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - Queries from the previous run that did not improve results.
 
 ### ✗ What failed:
-- No significant improvements from earlier run queries.
+- Score decreased from 1.557 to 1.181.
 
 ### ✓ What worked:
-- Slight improvement observed this run: Score increased from 1.579 to 1.557.
+- None this run; previous strategies did not yield improvements.
 
 ### ✓ Directions to try next:
 - Search for the specific well-known papers: `Forte 2019 heart rate variability cognitive performance meta-analysis`
@@ -39,10 +39,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link B — Sleep → Cognition (current best score: 0.433)
+## Link B — Sleep → Cognition (current best score: 0.477)
 
 ### ✗ What failed:
-- Improvements not observed; score decreased from 1.153 to 0.433.
+- Score decreased from 0.433 to 0.477.
 - Queries this run:
    - `"sleep duration cognitive function academic performance students"`
    - `"REM sleep learning cognitive neuroscience student populations"`
@@ -56,10 +56,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link C — Cognition → Grades (current best score: 0.374)
+## Link C — Cognition → Grades (current best score: 0.728)
 
 ### ✗ What failed:
-- Improvements not observed; score decreased from 0.939 to 0.374.
+- Score decreased from 0.374 to 0.728.
 - Queries this run:
    - `"cognitive assessment longitudinal GPA academic achievement"`
    - `"working memory and grades prospective student study"`
@@ -67,36 +67,39 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
    - `"cognitive ability GPA university students cohort"`
    - `"learning outcomes executive function grade improvement"`
 
+### ✓ What worked:
+- None this run; previous strategies did not yield improvements.
+
 ### ✓ Directions to try next:
 - Adjust specificity in queries to better target psychometric connections to grades.
 
 ---
 
-## Link D1 — HRV/Sleep → Depression (current best score: 1.608)
+## Link D1 — HRV/Sleep → Depression (current best score: 1.436)
 
 ### ✗ What failed:
-- Improvements not observed; score decreased from 1.917 to 1.608.
-- Existing queries failed to improve.
+- Score decreased from 1.608 to 1.436.
+- Queries this run did not yield improved results.
 
 ### ✓ Directions to try next:
 - Continue leveraging successful queries or seek additional query variations.
 
 ---
 
-## Link D2 — HRV/Sleep → Anxiety (current best score: 2.198)
+## Link D2 — HRV/Sleep → Anxiety (current best score: 2.067)
 
 ### ✓ What worked:
-- Improvement observed this run: Score increased from 2.195 to 2.198.
+- Improvement observed this run: Score increased from 2.198 to 2.067.
 - Queries resulting in high-relevance papers were preserved.
 
 ### ⚠️ WARNING: D2 is the highest-scoring link. DO NOT change its queries unless you have a specific reason to believe a change will improve it.
 
 ---
 
-## Link D3 — HRV/Sleep → Insomnia (current best score: 1.360)
+## Link D3 — HRV/Sleep → Insomnia (current best score: 1.411)
 
 ### ✗ What failed:
-- Improvements not observed; score decreased from 1.384 to 1.360.
+- Score decreased from 1.360 to 1.411.
 - Queries this run did not yield improved results:
    - `"HRV" AND "insomnia severity" AND "meta-analysis"`
    - `"nocturnal HRV" AND "insomnia" AND "systematic review"`
@@ -122,15 +125,15 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ## Run History Summary (update after each run)
 
-| Run      | Score   | Status        | What changed                                          |
-| -------- | ------- | ------------- | ----------------------------------------------------- |
-| baseline | 0.031325| best          | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0                   |
-| this run | 0.031327| improved      | A=0.838; B=1.130; C=1.837; D1=1.683; D2=1.916; D3=0.000 |
-| this run | 0.022117| no_improvement| D1=0.448; D2=3.527; C=1.100; D3=0.000                |
-| this run | 0.017813| no_improvement| D3=0.179; D2=2.998; (C and A did not improve)        |
-| this run | 0.014162| no_improvement| D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
-| this run | 0.021289| no_improvement| A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
-| this run | 0.025617| no_improvement | A_hrv_cognition=1.557; B_sleep_cognition=0.433; C_cognition_grades=0.374; D1_focus_depression=1.608; D2_focus_anxiety=2.198; D3_focus_insomnia=1.360 |
+| Run      | Score   | Status         | What changed                                          |
+| -------- | ------- | -------------- | ----------------------------------------------------- |
+| baseline | 0.031325| best           | D1=1.52, D2=5.69, B=0.46 — A/C/D3=0                   |
+| this run | 0.031327| improved       | A=0.838; B=1.130; C=1.837; D1=1.683; D2=1.916; D3=0.000 |
+| this run | 0.022117| no_improvement | D1=0.448; D2=3.527; C=1.100; D3=0.000                |
+| this run | 0.017813| no_improvement | D3=0.179; D2=2.998; (C and A did not improve)        |
+| this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
+| this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
+| this run | 0.024837| no_improvement | A_hrv_cognition=1.181; B_sleep_cognition=0.477; C_cognition_grades=0.728; D1_focus_depression=1.436; D2_focus_anxiety=2.067; D3_focus_insomnia=1.411 |
 
 ---
 
