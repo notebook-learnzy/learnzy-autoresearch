@@ -1,4 +1,4 @@
-Here is the complete updated memory file with the requested changes.
+Here's the updated memory file with the requested changes:
 
 ---
 
@@ -26,11 +26,11 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ### ✗ What failed:
 - Queries this run did not yield improvements:
-  - `vagal tone cognitive flexibility well-known authors`
-  - `HF-HRV executive function neuroscience research`
-  - `cardiac vagal control cognitive neuroscience experts`
-  - `RMSSD cognitive abilities in youth neuroscience`
-  - `autonomic nervous system cognition specialized journals`
+  - `vagal tone cognitive control neuroimaging student populations`
+  - `HF-HRV prefrontal cortex cognitive neuroscience`
+  - `RMSSD attention performance college students`
+  - `autonomic flexibility executive function neuropsychology`
+  - `cardiac vagal tone neural mechanisms cognitive tasks students`
 
 ### ✓ What worked:
 - Score improved from 1.181 to 6.277 this run!
@@ -149,7 +149,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
 | this run | 0.045629| no_improvement | A_hrv_cognition=5.191; B_sleep_cognition=0.489; C_cognition_grades=1.804; D1_focus_depression=1.716; D2_focus_anxiety=1.873; D3_focus_insomnia=0.663 |
-| **this run** | **0.041950**| **no_improvement** | A_hrv_cognition=3.288 | B_sleep_cognition=1.134 | C_cognition_grades=2.182 | D1_focus_depression=1.507 | D2_focus_anxiety=2.272 | D3_focus_insomnia=0.442 |
+| **this run** | **0.046707**| **no_improvement** | A_hrv_cognition=5.221 | B_sleep_cognition=0.445 | C_cognition_grades=2.135 | D1_focus_depression=1.406 | D2_focus_anxiety=2.163 | D3_focus_insomnia=0.553 |
 
 ---
 
