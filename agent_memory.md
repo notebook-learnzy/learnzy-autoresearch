@@ -1,4 +1,4 @@
-Certainly! Below is the complete updated memory file incorporating the latest run results, insights, and history.
+Certainly! Below is the complete updated memory file with the latest run results, insights, and history incorporated, including updates to the "Run History Summary" table and sections for each link based on the outcomes of the current run.
 
 ---
 
@@ -26,14 +26,14 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ### ✗ What failed:
 - Queries this run did not yield improvements:
-  - `vagal tone executive function young adults neuroscience`
-  - `HF-HRV cognitive flexibility neuropsychology students`
-  - `cardiac vagal control cognitive performance youth psychology`
-  - `RMSSD cognitive function university populations`
-  - `autonomic nervous system attention students fMRI study`
+  - `HRV executive functions metacognition students`
+  - `vagal tone attention performance undergraduates`
+  - `RMSSD cognitive flexibility young adults neuroscience`
+  - `autonomic activity working memory university student study`
+  - `HF-HRV cognitive control fMRI prefrontal cortex students`
 
 ### ✓ What worked:
-- Score improved from 5.426 to 6.277 this run! 
+- None this run; previous score improved from 5.426 to 6.277 not achieved.
 
 ### ✓ Directions to try next:
 - Search for the specific well-known papers: `Forte 2019 heart rate variability cognitive performance meta-analysis`
@@ -74,6 +74,8 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
   - `"executive function academic performance university longitudinal"`
   - `"cognitive ability GPA university students cohort"`
   - `"learning outcomes executive function grade improvement"`
+  
+### ✗ What failed (additional queries):
 - Queries that did not yield improvements: 
   - `"cognitive test scores" AND "GPA" AND "higher education longitudinal"`
   - `"neuropsychological performance" AND "university grades longitudinal study"`
@@ -153,7 +155,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
 | this run | 0.045629| no_improvement | A_hrv_cognition=5.191; B_sleep_cognition=0.489; C_cognition_grades=1.804; D1_focus_depression=1.716; D2_focus_anxiety=1.873; D3_focus_insomnia=0.663 |
-| this run | 0.049896| no_improvement | A_hrv_cognition=5.426; B_sleep_cognition=0.476; C_cognition_grades=2.521; D1_focus_depression=1.677; D2_focus_anxiety=2.264; D3_focus_insomnia=0.221 |
+| this run | 0.044332| no_improvement | A_hrv_cognition=5.076; B_sleep_cognition=0.521; C_cognition_grades=2.281; D1_focus_depression=1.314; D2_focus_anxiety=1.645; D3_focus_insomnia=0.221 |
 
 ---
 
