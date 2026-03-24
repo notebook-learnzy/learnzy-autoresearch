@@ -13,58 +13,58 @@ DO NOT modify sources.py, agent.py, or the GitHub Actions workflow.
 # ─── SEARCH QUERIES ───────────────────────────────────────────────────────────
 QUERIES = {
     "A_hrv_cognition": [
-        "vagal tone executive function young adults neuroscience",
-        "HF-HRV cognitive flexibility neuropsychology students",
-        "cardiac vagal control cognitive performance youth psychology",
-        "RMSSD cognitive function university populations",
-        "autonomic nervous system attention students fMRI study"
+        "HRV RMSSD HF power vagal tone executive function attention working memory students",
+        "heart rate variability cognitive performance college student RMSSD vagal tone neurovisceral integration",
+        "vagal tone PFC working memory HRV academic performance",
+        "autonomic nervous system cognitive function youth university",
+        "neurovisceral integration theory cognitive performance RMSSD students"
     ],
 
     "B_sleep_cognition": [
-        '"slow wave sleep" AND "memory consolidation" AND "student study"',
-        '"REM sleep" AND "cognitive enhancement" AND "academic performance"',
-        '"sleep efficiency" AND "learning capacity" AND "review students"',
-        '"actigraphy" AND "sleep quality" AND "cognitive outcomes"',
-        '"Pittsburgh Sleep Quality Index" AND "executive function" AND "campus study"',
+        "sleep spindles slow-wave sleep PSQI actigraphy memory consolidation students",
+        "NREM sleep sleep architecture memory retention learning outcomes",
+        "sleep quality duration memory consolidation learning students PSQI actigraphy",
+        "sleep and learning hippocampal-neocortical dialogue spindles students",
+        "sleep duration sleep efficiency academic performance cognition students"
     ],
 
     "C_cognition_grades": [
-        '"fluid intelligence" AND "longitudinal GPA" university students',
-        '"executive function" AND "academic performance" AND "longitudinal study"',
-        '"cognitive ability" AND "exam scores" AND "prospective cohort"',
-        '"working memory" AND "academic achievement" university',
-        '"attention" AND "GPA" AND "longitudinal student research"',
+        "working memory attention executive function GPA academic performance",
+        "cognitive performance academic achievement exam scores stress attention",
+        "stress cognitive function academic grades school performance students",
+        "executive function academic outcomes university longitudinal",
+        "academic performance neuropsychological predictors student success"
     ],
 
     "D1_focus_depression": [
-        '"HRV" AND "depression risk" AND "systematic review"',
-        '"sleep disturbance" AND "PHQ-9" AND "prospective cohort"',
-        '"heart rate variability" AND "depressive symptoms" AND "meta-analysis"',
-        '"RMSSD" AND "depression" AND "review"',
-        'HRV sleep PHQ-9 depression university students',
+        "HRV RMSSD PHQ-9 depression vagal tone sleep quality students",
+        "sleep quality BDI HRV cortisol depression academic performance",
+        "sleep architecture depression students HRV PHQ-9",
+        "vagal regulation depression symptoms student populations",
+        "autonomic dysfunction depression risk students meta-analysis"
     ],
 
     "D2_focus_anxiety": [
-        '"HRV" AND "anxiety prediction" AND "systematic review"',
-        '"autonomic nervous system" AND "GAD-7" AND "meta-analysis"',
-        '"sleep quality" AND "anxiety disorder" AND "prospective study"',
-        '"HRV biofeedback" AND "anxiety" AND "RCT"',
-        'HRV sleep GAD-7 anxiety young adults',
+        "HRV RMSSD GAD-7 anxiety vagal tone autonomic regulation students",
+        "sleep quality anxiety levels HRV GAD-7 STAI academic performance",
+        "cortisol HRV anxiety stress regulatory mechanisms students",
+        "vagal influence anxiety management young adults",
+        "autonomic nervous system and anxiety disorders student populations"
     ],
 
     "D3_focus_insomnia": [
-        "heart rate variability insomnia disorder autonomic",
-        "HRV nocturnal sleep quality insomnia severity systematic review",
-        "autonomic dysregulation insomnia treatment outcome RCT",
-        "PSQI HRV insomnia severity index correlation meta-analysis",
-        "sleep efficiency heart rate variability insomnia longitudinal",
+        "heart rate variability insomnia ISI PSQI autonomic markers students",
+        "HRV insomnia ISI autonomic hyperarousal sleep disorder treatment",
+        "autonomic regulation HRV sleep disorders insomnia ISI students",
+        "insomnia autonomic markers HRV RMSSD PSQI academic performance",
+        "HRV nocturnal sleep efficiency insomnia severity systematic review"
     ],
 }
 
 # ─── INCLUSION CRITERIA ────────────────────────────────────────────────────────
 INCLUSION = {
-    "min_sample_size": 50,      
-    "min_year": 2015,           
+    "min_sample_size": 20,      
+    "min_year": 2010,           
     "max_results_per_query": 50,
     "study_types": [
         "meta_analysis",
@@ -77,10 +77,10 @@ INCLUSION = {
 
 # ─── SEARCH DEPTH PER LINK ────────────────────────────────────────────────────
 SEARCH_DEPTH = {
-    "A_hrv_cognition":     80, 
-    "B_sleep_cognition":   30,
+    "A_hrv_cognition":     150, 
+    "B_sleep_cognition":   100,
     "C_cognition_grades":  100,
-    "D1_focus_depression": 30,
-    "D2_focus_anxiety":    40,
-    "D3_focus_insomnia":   50,
+    "D1_focus_depression": 80,
+    "D2_focus_anxiety":    80,
+    "D3_focus_insomnia":   150,
 }
