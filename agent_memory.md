@@ -25,8 +25,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 - Queries from the previous run that did not improve results.
 
 ### ✗ What failed:
-- Queries this run did not yield improvements:
-  - None
+- None this run did not yield improvements.
 
 ### ✓ What worked:
 - Improved from 1.632 to 1.668; preserved successful previous results.
@@ -145,6 +144,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
 | this run | 0.031898| no_improvement | A_hrv_cognition=1.668; B_sleep_cognition=1.335; C_cognition_grades=0.879; D1_focus_depression=1.404; D2_focus_anxiety=2.290; D3_focus_insomnia=1.385 |
 | this run | 0.034699| no_improvement | A_hrv_cognition=0.921; B_sleep_cognition=1.805; C_cognition_grades=1.933; D1_focus_depression=1.044; D2_focus_anxiety=2.358; D3_focus_insomnia=1.557 |
+| this run | 0.034944| no_improvement | A_hrv_cognition=1.299; B_sleep_cognition=0.821; C_cognition_grades=1.117; D1_focus_depression=2.141; D2_focus_anxiety=2.791; D3_focus_insomnia=2.221 |
 
 ---
 
