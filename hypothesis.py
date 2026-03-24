@@ -1,70 +1,88 @@
 """
-hypothesis.py — THE AGENT'S ONLY MUTABLE FILE
+hypothesis.py — VAULT-DRIVEN CUSTOM QUERIES (5 per link)
 
-Analog to train.py in karpathy/autoresearch.
-
-Everything in this file is fair game for the agent to modify each run.
-The agent's goal: maximize evidence_score by finding higher-quality,
-more relevant, larger-sample papers for each hypothesis link.
-
-DO NOT modify sources.py, agent.py, or the GitHub Actions workflow.
+Queries written directly from Learnzy's Obsidian hypothesis vault.
+Each query targets a SPECIFIC mechanism identified in the vault notes.
 """
 
-# ─── SEARCH QUERIES ───────────────────────────────────────────────────────────
 QUERIES = {
+    # LINK A: HRV → Cognition
+    # Vault mechanism: Neurovisceral integration — PFC controls vagal tone → HRV
+    # Same brain network: PFC + ACC + insula + amygdala regulates HRV AND attention/WM
+    # RMSSD = parasympathetic (PNS) marker; high RMSSD = better PFC function
     "A_hrv_cognition": [
-        "HRV RMSSD HF power vagal tone executive function attention working memory students",
-        "heart rate variability cognitive performance college student RMSSD vagal tone neurovisceral integration",
-        "vagal tone PFC working memory HRV academic performance",
-        "autonomic nervous system cognitive function youth university",
-        "neurovisceral integration theory cognitive performance RMSSD students"
+        "RMSSD vagal tone prefrontal cortex working memory executive function students",
+        "neurovisceral integration heart rate variability cognitive control attention meta-analysis",
+        "HF-HRV high frequency power executive function working memory university students",
+        "vagal tone parasympathetic nervous system cognitive flexibility attention control",
+        "heart rate variability SDNN cognitive performance memory encoding university students systematic review",
     ],
 
+    # LINK B: Sleep → Cognition
+    # Vault mechanism: Sleep spindles (12-15 Hz stage 2) = memory consolidation
+    # Sharp-wave ripples (150-200 Hz) = hippocampal replay → neocortical transfer
+    # Slow oscillations stage 3 = hippocampus-neocortex dialogue
+    # 40% reduction in memory formation with sleep deprivation
     "B_sleep_cognition": [
-        "sleep spindles slow-wave sleep PSQI actigraphy memory consolidation students",
-        "NREM sleep sleep architecture memory retention learning outcomes",
-        "sleep quality duration memory consolidation learning students PSQI actigraphy",
-        "sleep and learning hippocampal-neocortical dialogue spindles students",
-        "sleep duration sleep efficiency academic performance cognition students"
+        "sleep spindles stage 2 NREM memory consolidation learning students",
+        "slow-wave sleep hippocampus neocortex memory transfer sharp-wave ripples",
+        "sleep deprivation working memory hippocampus encoding 40 percent students",
+        "REM sleep memory integration learning cognitive performance university",
+        "PSQI sleep efficiency memory consolidation academic performance longitudinal",
     ],
 
+    # LINK C: Cognition → Academic Grades
+    # Vault: working memory holds 7±2 items, manipulates for maths/physics/logic
+    # Stress-induced WM impairment → 0.3–0.5 SD decrease in academics
+    # Maths, physics, organic chemistry = highest cognitive load subjects
     "C_cognition_grades": [
-        "working memory attention executive function GPA academic performance",
-        "cognitive performance academic achievement exam scores stress attention",
-        "stress cognitive function academic grades school performance students",
-        "executive function academic outcomes university longitudinal",
-        "academic performance neuropsychological predictors student success"
+        "working memory capacity GPA university students meta-analysis longitudinal",
+        "executive function attention control academic achievement exam scores students",
+        "cognitive load working memory mathematics physics academic performance",
+        "stress working memory impairment academic grades university cohort study",
+        "attention sustained concentration exam performance university students prospective",
     ],
 
+    # LINK D1: HRV/Sleep → Depression
+    # Vault: HPA axis → cortisol → GR receptors → hippocampus atrophy → depression
+    # Chronic cortisol: 8-12% hippocampus volume reduction, 50% neurogenesis decrease
+    # Low HRV = SNS dominance = elevated baseline cortisol = PHQ-9 scores
     "D1_focus_depression": [
-        "HRV RMSSD PHQ-9 depression vagal tone sleep quality students",
-        "sleep quality BDI HRV cortisol depression academic performance",
-        "sleep architecture depression students HRV PHQ-9",
-        "vagal regulation depression symptoms student populations",
-        "autonomic dysfunction depression risk students meta-analysis"
+        "heart rate variability RMSSD PHQ-9 depression students autonomic nervous system",
+        "HPA axis cortisol depression hippocampus atrophy students longitudinal",
+        "sleep quality depression PHQ-9 BDI cortisol HPA axis students",
+        "vagal tone low HRV depression risk meta-analysis systematic review",
+        "sleep deprivation cortisol elevated depression symptoms university students",
     ],
 
+    # LINK D2: HRV/Sleep → Anxiety
+    # Vault: amygdala hyperactivity (37% increase with sleep deprivation)
+    # PFC loses control over amygdala when HRV low / sleep deprived
+    # GAD-7, STAI instruments; baroreflex connects HRV to anxiety regulation
     "D2_focus_anxiety": [
-        "HRV RMSSD GAD-7 anxiety vagal tone autonomic regulation students",
-        "sleep quality anxiety levels HRV GAD-7 STAI academic performance",
-        "cortisol HRV anxiety stress regulatory mechanisms students",
-        "vagal influence anxiety management young adults",
-        "autonomic nervous system and anxiety disorders student populations"
+        "heart rate variability GAD-7 anxiety disorder students autonomic regulation",
+        "amygdala prefrontal cortex HRV anxiety emotional regulation students",
+        "sleep deprivation amygdala reactivity anxiety GAD-7 university students",
+        "vagal tone baroreflex anxiety management generalized anxiety disorder",
+        "RMSSD HRV anxiety symptoms meta-analysis prospective cohort systematic review",
     ],
 
+    # LINK D3: HRV/Sleep → Insomnia
+    # Vault: sleep latency, WASO, sleep efficiency = ISI/PSQI instruments
+    # Autonomic hyperarousal = elevated SNS at night = low nocturnal HRV = insomnia
+    # HPA axis dysregulation prevents sleep initiation
     "D3_focus_insomnia": [
-        "heart rate variability insomnia ISI PSQI autonomic markers students",
-        "HRV insomnia ISI autonomic hyperarousal sleep disorder treatment",
-        "autonomic regulation HRV sleep disorders insomnia ISI students",
-        "insomnia autonomic markers HRV RMSSD PSQI academic performance",
-        "HRV nocturnal sleep efficiency insomnia severity systematic review"
+        "nocturnal heart rate variability HRV insomnia severity index ISI autonomic hyperarousal",
+        "sleep efficiency WASO sleep latency HRV PSQI insomnia systematic review",
+        "autonomic nervous system SNS hyperarousal insomnia treatment outcome",
+        "HPA cortisol sleep initiation insomnia disorder university students",
+        "RMSSD nocturnal HRV insomnia sleep quality PSQI prospective cohort",
     ],
 }
 
-# ─── INCLUSION CRITERIA ────────────────────────────────────────────────────────
 INCLUSION = {
-    "min_sample_size": 20,      
-    "min_year": 2010,           
+    "min_sample_size": 20,
+    "min_year": 2010,
     "max_results_per_query": 50,
     "study_types": [
         "meta_analysis",
@@ -75,12 +93,11 @@ INCLUSION = {
     ],
 }
 
-# ─── SEARCH DEPTH PER LINK ────────────────────────────────────────────────────
 SEARCH_DEPTH = {
-    "A_hrv_cognition":     150, 
+    "A_hrv_cognition":     100,
     "B_sleep_cognition":   100,
     "C_cognition_grades":  100,
-    "D1_focus_depression": 80,
-    "D2_focus_anxiety":    80,
-    "D3_focus_insomnia":   150,
+    "D1_focus_depression": 100,
+    "D2_focus_anxiety":    100,
+    "D3_focus_insomnia":   100,
 }
