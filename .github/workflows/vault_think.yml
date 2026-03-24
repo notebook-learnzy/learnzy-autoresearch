@@ -1,0 +1,58 @@
+name: Vault Deep Think
+
+on:
+  workflow_dispatch:
+
+jobs:
+  think:
+    name: Deep vault reasoning → optimized hypothesis.py
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install --quiet requests
+
+      - name: Configure git identity
+        run: |
+          git config user.email "research-bot@learnzy.in"
+          git config user.name "Learnzy Research Bot"
+
+      - name: Run vault deep think
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python think_from_vault.py 2>&1 | tee vault_think.log
+
+      - name: Push optimized hypothesis.py
+        if: always()
+        run: |
+          git add hypothesis.py
+          git add -f results.tsv 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "feat: vault-synthesized hypothesis.py from deep think session"
+            git push origin HEAD
+          fi
+
+      - name: Upload think log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vault-think-log
+          path: vault_think.log
+          retention-days: 7
