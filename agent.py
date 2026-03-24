@@ -37,6 +37,7 @@ HYPOTHESIS_FILE = ROOT / "hypothesis.py"
 RESULTS_FILE = ROOT / "results.tsv"
 PROGRAM_FILE = ROOT / "program.md"
 MEMORY_FILE = ROOT / "agent_memory.md"
+VAULT_CONTEXT_FILE = ROOT / "vault_context.md"
 RUN_LOG = ROOT / "run.log"
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
@@ -124,6 +125,7 @@ def propose_hypothesis_modification(
     program_instructions: str,
     best_score: float,
     agent_memory: str,
+    vault_context: str = "",
 ) -> tuple[str, str]:
     """
     Ask GPT-4o to reason about the current state THEN propose a modified hypothesis.py.
@@ -135,9 +137,15 @@ def propose_hypothesis_modification(
 
     The reasoning is saved to agent_memory.md so future runs learn from it.
     """
+    vault_section = f"""
+---
+LEARNZY HYPOTHESIS VAULT (your knowledge base — use this to build precise queries):
+{vault_context[:8000]}
+""" if vault_context else ""
+
     # Step 1: Ask for explicit chain-of-thought reasoning
     reasoning_prompt = f"""{program_instructions}
-
+{vault_section}
 ---
 AGENT MEMORY (what has been tried across ALL previous runs — read before reasoning):
 {agent_memory}
@@ -277,6 +285,9 @@ def main() -> None:
     current_hypothesis = HYPOTHESIS_FILE.read_text()
     program_instructions = PROGRAM_FILE.read_text() if PROGRAM_FILE.exists() else ""
     agent_memory = MEMORY_FILE.read_text() if MEMORY_FILE.exists() else ""
+    vault_context = VAULT_CONTEXT_FILE.read_text() if VAULT_CONTEXT_FILE.exists() else ""
+    if vault_context:
+        print(f"[agent] Vault context loaded: {len(vault_context.split())} words", flush=True)
 
     # Read last 20 rows of results.tsv for context
     recent_results = ""
@@ -297,7 +308,8 @@ def main() -> None:
         print("[agent] Calling Claude to reason + propose hypothesis modification...", flush=True)
         try:
             new_hypothesis, reasoning = propose_hypothesis_modification(
-                current_hypothesis, recent_results, program_instructions, best_score, agent_memory
+                current_hypothesis, recent_results, program_instructions,
+                best_score, agent_memory, vault_context
             )
             # Strip markdown fences if Claude added them
             if new_hypothesis.startswith("```"):
