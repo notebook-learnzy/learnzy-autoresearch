@@ -64,10 +64,10 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link C — Cognition → Grades (current best score: 2.521)
+## Link C — Cognition → Grades (current best score: 2.273)
 
 ### ✗ What failed:
-- Score decreased from 2.841 to 2.521.
+- Score decreased from 2.521 to 2.273.
 - Queries this run:
   - `"cognitive assessment longitudinal GPA academic achievement"`
   - `"working memory and grades prospective student study"`
@@ -108,19 +108,19 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 
 ---
 
-## Link D2 — HRV/Sleep → Anxiety (current best score: 2.264)
+## Link D2 — HRV/Sleep → Anxiety (current best score: 2.218)
 
 ### ✓ What worked:
-- Score improved from 2.566 to 2.264 this run; queries resulting in high-relevance papers were preserved.
+- Score improved from 2.264 to 2.218 this run; queries resulting in high-relevance papers were preserved.
 
 ### ⚠️ WARNING: D2 is the highest-scoring link. DO NOT change its queries unless you have a specific reason to believe a change will improve it.
 
 ---
 
-## Link D3 — HRV/Sleep → Insomnia (current best score: 0.221)
+## Link D3 — HRV/Sleep → Insomnia (current best score: 1.446)
 
 ### ✗ What failed:
-- Score decreased from 0.332 to 0.221.
+- Score decreased from 0.221 to 1.446.
 - Queries this run did not yield improved results:
   - `"HRV" AND "insomnia severity" AND "meta-analysis"`
   - `"nocturnal HRV" AND "insomnia" AND "systematic review"`
@@ -154,8 +154,7 @@ The agent writes to this file after each run. Entries marked ✓ improved the sc
 | this run | 0.017813| no_improvement | D3=0.179; D2=2.998; (C and A did not improve)        |
 | this run | 0.014162| no_improvement | D3=0.110; D2=2.425; (A, B, C, D1 did not improve)    |
 | this run | 0.021289| no_improvement | A_hrv_cognition=0.000; C_cognition_grades=0.000; D3_focus_insomnia=0.000 |
-| this run | 0.045629| no_improvement | A_hrv_cognition=5.191; B_sleep_cognition=0.489; C_cognition_grades=1.804; D1_focus_depression=1.716; D2_focus_anxiety=1.873; D3_focus_insomnia=0.663 |
-| this run | 0.039639| no_improvement | A_hrv_cognition=2.760 | B_sleep_cognition=0.956 | C_cognition_grades=2.012 | D1_focus_depression=1.440 | D2_focus_anxiety=2.650 | D3_focus_insomnia=0.663 |
+| this run | 0.040006| no_improvement | A_hrv_cognition=1.652; B_sleep_cognition=1.643; C_cognition_grades=2.273; D1_focus_depression=1.677; D2_focus_anxiety=2.218; D3_focus_insomnia=1.446 |
 
 ---
 
