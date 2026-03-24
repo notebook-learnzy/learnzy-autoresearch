@@ -23,28 +23,43 @@ ROOT = Path(__file__).parent
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 
 
-def call_gpt4o(messages: list, max_tokens: int = 4096) -> str:
-    import urllib.request
+def call_gpt4o(messages: list, max_tokens: int = 4096, retries: int = 4) -> str:
+    import urllib.request, urllib.error
     payload = json.dumps({
         "model": "gpt-4o",
         "max_tokens": max_tokens,
         "messages": messages,
     }).encode()
-    req = urllib.request.Request(
-        "https://api.openai.com/v1/chat/completions",
-        data=payload,
-        headers={"Authorization": f"Bearer {OPENAI_API_KEY}", "content-type": "application/json"},
-    )
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.loads(r.read())["choices"][0]["message"]["content"]
+    for attempt in range(retries):
+        req = urllib.request.Request(
+            "https://api.openai.com/v1/chat/completions",
+            data=payload,
+            headers={"Authorization": f"Bearer {OPENAI_API_KEY}", "content-type": "application/json"},
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                return json.loads(r.read())["choices"][0]["message"]["content"]
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < retries - 1:
+                wait = 2 ** (attempt + 2)  # 4s, 8s, 16s, 32s
+                print(f"[think] Rate limited (429) — waiting {wait}s before retry {attempt+1}/{retries}", flush=True)
+                time.sleep(wait)
+            else:
+                raise
 
 
 def main():
     vault_context = (ROOT / "vault_context.md").read_text()
     current_hypothesis = (ROOT / "hypothesis.py").read_text()
 
+    # Split vault into first 6000 words (HRV/Sleep/Cognition links) and last portion (mental health links)
+    vault_words = vault_context.split()
+    vault_part1 = " ".join(vault_words[:6000])   # covers Links A, B, C
+    vault_part2 = " ".join(vault_words[6000:12000])  # covers Links D1, D2, D3 + connection map
+
     print("=" * 60)
     print("PHASE 1: Deep vault reasoning (GPT-4o analyzing all 6 links)")
+    print(f"         Vault: {len(vault_words)} words split into 2 parts")
     print("=" * 60)
 
     reasoning_prompt = f"""You are a research scientist designing search queries to find peer-reviewed papers.
@@ -56,8 +71,11 @@ You have access to a deep knowledge base (Obsidian vault) of interconnected rese
 - Academic performance, GPA, working memory, executive function
 - Depression, anxiety, insomnia — their physiological markers and instruments (PHQ-9, GAD-7, ISI)
 
-VAULT KNOWLEDGE BASE:
-{vault_context}
+VAULT KNOWLEDGE BASE (Part 1 — HRV, Sleep, Cognition, Grades):
+{vault_part1}
+
+VAULT KNOWLEDGE BASE (Part 2 — Mental Health Links, Depression, Anxiety, Insomnia):
+{vault_part2}
 
 ---
 
